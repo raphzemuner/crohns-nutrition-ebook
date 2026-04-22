@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Building Muscle with Crohn's Disease — Nutrition Guide</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:    #2d6a4f;
+      --green-lt: #d8f3dc;
+      --teal:     #1b4332;
+      --accent:   #52b788;
+      --amber:    #e9c46a;
+      --amber-lt: #fefae0;
+      --red:      #bc4749;
+      --red-lt:   #fde8e8;
+      --text:     #1a1a2e;
+      --muted:    #6b7280;
+      --bg:       #f8faf9;
+      --white:    #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    /* ─── COVER ─── */
+    .cover {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--green) 60%, var(--accent) 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cover-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 99px;
+      padding: 5px 18px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .cover h1 {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+    .cover h1 span { color: var(--amber); }
+    .cover .tagline {
+      font-size: 1.15rem;
+      opacity: .85;
+      max-width: 520px;
+      font-family: -apple-system, sans-serif;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+    .cover-meta {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.82rem;
+      opacity: .6;
+      letter-spacing: .05em;
+    }
+    .cover-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: -apple-system, sans-serif;
+      font-size: 0.78rem;
+      opacity: .5;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .cover-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,.4);
+      margin: 8px auto 0;
+      animation: scrollPulse 1.6s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+    /* ─── LAYOUT ─── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 28px;
+    }
+
+    /* ─── TOC ─── */
+    .toc {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      margin-bottom: 60px;
+    }
+    .toc h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-family: -apple-system, sans-serif;
+    }
+    .toc ol { counter-reset: toc; list-style: none; }
+    .toc ol li {
+      counter-increment: toc;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 7px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      font-family: -apple-system, sans-serif;
+    }
+    .toc ol li:last-child { border-bottom: none; }
+    .toc ol li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.72rem;
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 22px;
+    }
+    .toc ol li a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .toc ol li a:hover { color: var(--green); }
+
+    /* ─── CHAPTER HEADER ─── */
+    .chapter {
+      margin-bottom: 70px;
+    }
+    .chapter-label {
+      font-family: -apple-system, sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    h2.chapter-title {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--teal);
+    }
+    h3 {
+      font-size: 1.15rem;
+      color: var(--green);
+      margin: 32px 0 10px;
+    }
+    p { margin-bottom: 1rem; }
+
+    /* ─── CALLOUTS ─── */
+    .callout {
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: flex;
+      gap: 14px;
+    }
+    .callout .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .callout.tip    { background: var(--green-lt); border-left: 4px solid var(--accent); }
+    .callout.warn   { background: var(--amber-lt); border-left: 4px solid var(--amber); }
+    .callout.danger { background: var(--red-lt);   border-left: 4px solid var(--red);   }
+    .callout.info   { background: #e8f4fd;          border-left: 4px solid #2196f3;      }
+    .callout b { color: var(--teal); }
+
+    /* ─── TABLES ─── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      margin: 20px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(0,0,0,.06);
+    }
+    .data-table thead th {
+      background: var(--green);
+      color: #fff;
+      padding: 11px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .data-table tbody tr:nth-child(even) { background: #f0faf4; }
+    .data-table tbody tr:nth-child(odd)  { background: var(--white); }
+    .data-table tbody td { padding: 10px 14px; vertical-align: top; border-bottom: 1px solid #e8f3ec; }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ─── FOOD GRID ─── */
+    .food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .food-item {
+      background: var(--white);
+      border: 1px solid #d1fae5;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.82rem;
+    }
+    .food-item .emoji { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+    .food-item .name  { font-weight: 600; color: var(--teal); }
+    .food-item .note  { color: var(--muted); font-size: 0.75rem; margin-top: 2px; }
+
+    .food-grid.avoid .food-item { border-color: #fecaca; background: #fff5f5; }
+
+    /* ─── PHASE CARDS ─── */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .phase-card {
+      border-radius: 12px;
+      padding: 20px;
+      font-family: -apple-system, sans-serif;
+    }
+    .phase-card.flare  { background: #fff7ed; border: 2px solid #fdba74; }
+    .phase-card.remission { background: var(--green-lt); border: 2px solid var(--accent); }
+    .phase-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .06em; }
+    .phase-card.flare h4 { color: #c2410c; }
+    .phase-card.remission h4 { color: var(--teal); }
+    .phase-card ul { padding-left: 16px; font-size: 0.85rem; line-height: 1.7; color: #374151; }
+
+    /* ─── MEAL PLAN ─── */
+    .meal-plan {
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.06);
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .meal-plan-day {
+      border-bottom: 1px solid #f0faf4;
+    }
+    .meal-plan-day:last-child { border-bottom: none; }
+    .meal-plan-day-header {
+      background: var(--green-lt);
+      padding: 10px 18px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .meal-plan-meals { padding: 14px 18px; }
+    .meal-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      padding: 5px 0;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.875rem;
+      border-bottom: 1px dashed #f0f0f0;
+    }
+    .meal-row:last-child { border-bottom: none; }
+    .meal-label {
+      min-width: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent);
+    }
+
+    /* ─── SUPPLEMENT TABLE ─── */
+    .supp-tag {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: -apple-system, sans-serif;
+    }
+    .supp-tag.safe    { background: #d1fae5; color: #065f46; }
+    .supp-tag.caution { background: #fef3c7; color: #92400e; }
+    .supp-tag.avoid   { background: #fee2e2; color: #991b1b; }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      border: none;
+      border-top: 2px dashed #d1fae5;
+      margin: 40px 0;
+    }
+
+    /* ─── HIGHLIGHT STAT ─── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .stat-box {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,.05);
+      font-family: -apple-system, sans-serif;
+    }
+    .stat-box .num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+    .stat-box .desc { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ─── FINAL PAGE ─── */
+    .back-cover {
+      background: linear-gradient(135deg, var(--teal), var(--green));
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .back-cover h2 { font-size: 1.8rem; margin-bottom: 16px; }
+    .back-cover p  { max-width: 480px; margin: 0 auto; opacity: .8; font-family: -apple-system, sans-serif; font-size: 0.95rem; }
+
+    /* ─── PRINT ─── */
+    @media print {
+      .cover { min-height: auto; padding: 60px 40px; page-break-after: always; }
+      .chapter { page-break-inside: avoid; }
+    }
+
+    /* ─── TABS ─── */
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid #e8f3ec;
+      margin-bottom: 28px;
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      color: var(--muted);
+      transition: color .15s, border-color .15s;
+      letter-spacing: .02em;
+    }
+    .tab-btn:hover { color: var(--green); }
+    .tab-btn.active { color: var(--teal); border-bottom-color: var(--green); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* week grid */
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .day-card {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+    .day-card .day-name {
+      background: var(--green);
+      color: #fff;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 6px 10px;
+    }
+    .day-card.rest .day-name { background: #9ca3af; }
+    .day-card.light .day-name { background: #d97706; }
+    .day-card .day-body {
+      padding: 10px;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: #374151;
+    }
+    .day-card .day-tag {
+      display: inline-block;
+      background: var(--green-lt);
+      color: var(--teal);
+      border-radius: 99px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 1px 7px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .day-card.rest  .day-tag { background: #f3f4f6; color: #6b7280; }
+    .day-card.light .day-tag { background: #fef3c7; color: #92400e; }
+
+    /* ─── NAV (sticky) ─── */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e8f3ec;
+      padding: 10px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, sans-serif;
+      font-size: 0.8rem;
+    }
+    .top-nav .title { font-weight: 700; color: var(--teal); }
+    .top-nav a { color: var(--muted); text-decoration: none; margin-left: 18px; }
+    .top-nav a:hover { color: var(--green); }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 680px) {
+
+      /* cover */
+      .cover { padding: 48px 20px 60px; min-height: 100svh; }
+      .cover h1 { font-size: 2rem; }
+      .cover .tagline { font-size: 0.95rem; }
+
+      /* sticky nav — horizontally scrollable pill bar */
+      .top-nav {
+        padding: 0;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .top-nav .title {
+        padding: 8px 16px;
+        font-size: 0.78rem;
+        border-bottom: 1px solid #e8f3ec;
+      }
+      .top-nav div {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 6px 12px;
+        gap: 4px;
+      }
+      .top-nav div::-webkit-scrollbar { display: none; }
+      .top-nav a {
+        margin-left: 0;
+        white-space: nowrap;
+        background: #f0faf4;
+        border-radius: 99px;
+        padding: 4px 12px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .top-nav a:hover { background: var(--green-lt); }
+
+      /* page */
+      .page { padding: 36px 16px; }
+
+      /* toc */
+      .toc { padding: 20px 16px; }
+      .toc ol li { gap: 8px; }
+
+      /* chapter title */
+      h2.chapter-title { font-size: 1.4rem; }
+      h3 { font-size: 1rem; }
+
+      /* callouts */
+      .callout { padding: 14px 14px; gap: 10px; font-size: 0.85rem; }
+
+      /* tables — scroll horizontally */
+      .data-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+        font-size: 0.78rem;
+      }
+      .data-table td, .data-table th { white-space: normal; min-width: 100px; }
+
+      /* food grid — 2 columns */
+      .food-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* stat row — 2 columns */
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-box .num { font-size: 1.4rem; }
+
+      /* phase grid — single column */
+      .phase-grid { grid-template-columns: 1fr; }
+
+      /* week grid — 2 columns */
+      .week-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* meal rows — stack label above content */
+      .meal-row { flex-direction: column; gap: 1px; padding: 8px 0; }
+      .meal-label { min-width: unset; font-size: 0.68rem; }
+      .meal-plan-meals { padding: 10px 14px; }
+      .meal-plan-day-header { padding: 8px 14px; font-size: 0.75rem; }
+
+      /* tabs */
+      .tab-bar { flex-wrap: wrap; gap: 4px; border-bottom: none; margin-bottom: 20px; }
+      .tab-btn {
+        flex: 1 1 45%;
+        padding: 10px 8px;
+        font-size: 0.82rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 10px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .tab-btn.active {
+        border-color: var(--green);
+        background: var(--green-lt);
+        color: var(--teal);
+      }
+
+      /* back cover */
+      .back-cover { padding: 60px 20px; }
+      .back-cover h2 { font-size: 1.4rem; }
+
+      /* strategy grid */
+      .strategy-grid { grid-template-columns: 1fr; }
+
+      /* divider spacing */
+      .chapter { margin-bottom: 48px; }
+      .divider { margin: 28px 0; }
+    }
+
+    /* ─── EXTRA SMALL (≤380px) ─── */
+    @media (max-width: 380px) {
+      .food-grid { grid-template-columns: 1fr; }
+      .week-grid { grid-template-columns: 1fr; }
+      .stat-row  { grid-template-columns: 1fr; }
+      .cover h1  { font-size: 1.7rem; }
+      .tab-btn   { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover" id="top">
+  <div class="cover-badge">Nutrition Guide · 2026 Edition</div>
+  <h1>Building <span>Muscle</span><br>with Crohn's Disease</h1>
+  <p class="tagline">A practical, evidence-informed nutrition guide for gaining strength and muscle when your gut needs extra care.</p>
+  <p class="cover-meta">GENERAL NUTRITION · GUT HEALTH · SPORTS NUTRITION</p>
+  <div class="cover-scroll" onclick="document.getElementById('content').scrollIntoView({behavior:'smooth'})">Scroll to read</div>
+</div>
+
+<!-- ═══ STICKY NAV ═══ -->
+<nav class="top-nav">
+  <span class="title">Building Muscle with Crohn's</span>
+  <div>
+    <a href="#ch1">Basics</a>
+    <a href="#ch2">Nutrition</a>
+    <a href="#ch3">Foods</a>
+    <a href="#ch4">Meal Plan</a>
+    <a href="#ch5">Supps</a>
+    <a href="#ch6">Strategy</a>
+    <a href="#ch7">Diagnosis</a>
+    <a href="#ch8">Gut Healing</a>
+    <a href="#ch9">Med-Free</a>
+    <a href="#ch10">Diets</a>
+    <a href="#ch11">Mind &amp; Stress</a>
+    <a href="#ch12">Healed</a>
+    <a href="#ch13">Plans</a>
+  </div>
+</nav>
+
+<!-- ═══ CONTENT ═══ -->
+<div id="content">
+<div class="page">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#ch1">Understanding Crohn's &amp; Your Nutritional Needs</a></li>
+      <li><a href="#ch2">Macronutrients for Muscle Gain</a></li>
+      <li><a href="#ch3">Best &amp; Worst Foods for Crohn's Muscle Building</a></li>
+      <li><a href="#ch4">Sample Meal Plans (Flare vs. Remission)</a></li>
+      <li><a href="#ch5">Supplements — What's Safe, What's Not</a></li>
+      <li><a href="#ch6">Practical Strategies &amp; Mindset</a></li>
+      <li><a href="#ch7">The First Year — Living with a New Diagnosis</a></li>
+      <li><a href="#ch8">Foods to Heal the Gut</a></li>
+      <li><a href="#ch9">Pursuing a Medication-Free Life</a></li>
+      <li><a href="#ch10">Dietary Approaches for Crohn's — All Routes Compared</a></li>
+      <li><a href="#ch11">The Mind-Gut Connection: Stress, Psychology &amp; Exercise</a></li>
+      <li><a href="#ch12">People Who Healed: Studies &amp; Real Cases</a></li>
+      <li><a href="#ch13">Your Weekly Plans — In Remission &amp; During a Flare</a></li>
+    </ol>
+  </div>
+
+  <!-- ═══ CHAPTER 1 ═══ -->
+  <div class="chapter" id="ch1">
+    <p class="chapter-label">Chapter 01</p>
+    <h2 class="chapter-title">Understanding Crohn's &amp; Your Nutritional Needs</h2>
+
+    <p>Crohn's disease is a chronic inflammatory bowel disease (IBD) that can affect any part of the gastrointestinal tract. Inflammation, malabsorption, and frequent flares create a uniquely challenging environment for anyone trying to build muscle — but it is absolutely achievable with the right approach.</p>
+
+    <p>The core challenge is that Crohn's can impair your ability to absorb calories, protein, vitamins, and minerals, even when you are eating enough. This means the traditional "eat more, lift more" advice needs to be modified to account for what your gut can actually process and absorb.</p>
+
+    <h3>How Crohn's Affects Muscle Building</h3>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">↑40%</div><div class="desc">Higher resting energy expenditure during active inflammation</div></div>
+      <div class="stat-box"><div class="num">↓30%</div><div class="desc">Reduced protein absorption during flares in some patients</div></div>
+      <div class="stat-box"><div class="num">3–4×</div><div class="desc">Higher risk of vitamin D, B12, iron &amp; zinc deficiency</div></div>
+    </div>
+
+    <p>During active inflammation (a "flare"), the body releases cytokines that promote muscle breakdown (catabolism). This is the opposite of what you want when training. During remission, the window opens for meaningful muscle growth — and that's when nutrition strategy matters most.</p>
+
+    <div class="callout warn">
+      <span class="icon">⚠️</span>
+      <div><b>Always work with your healthcare team.</b> This guide is educational and evidence-informed, but your gastroenterologist and a registered dietitian familiar with IBD should guide your personal plan. Nutritional needs vary significantly based on disease location, severity, medications, and surgical history.</div>
+    </div>
+
+    <h3>Two Phases: Flare vs. Remission</h3>
+    <p>Your nutrition strategy should shift based on your disease activity. Think of it as two distinct modes:</p>
+
+    <div class="phase-grid">
+      <div class="phase-card flare">
+        <h4>🔥 During a Flare</h4>
+        <ul>
+          <li>Prioritize gut rest &amp; healing</li>
+          <li>Focus on calorie &amp; nutrient density</li>
+          <li>Low-residue, easy-to-digest foods</li>
+          <li>Reduce fiber significantly</li>
+          <li>Maintain protein as best you can</li>
+          <li>Limit training intensity</li>
+        </ul>
+      </div>
+      <div class="phase-card remission">
+        <h4>✅ During Remission</h4>
+        <ul>
+          <li>This is your muscle-building window</li>
+          <li>Gradually increase calories</li>
+          <li>High protein intake (prioritize)</li>
+          <li>Expand food variety slowly</li>
+          <li>Support gut microbiome</li>
+          <li>Train progressively and consistently</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <span class="icon">💡</span>
+      <div><b>Key insight:</b> You don't need to build muscle year-round. Aligning your muscle-building nutrition phases with remission periods — and shifting to maintenance or gut-healing during flares — is a smarter long-term strategy than pushing through inflammation.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 2 ═══ -->
+  <div class="chapter" id="ch2">
+    <p class="chapter-label">Chapter 02</p>
+    <h2 class="chapter-title">Macronutrients for Muscle Gain</h2>
+
+    <p>The three macronutrients — protein, carbohydrates, and fats — each play a specific role in muscle building. With Crohn's, the focus is on getting adequate amounts of each while choosing forms that are gentle on your digestive system.</p>
+
+    <h3>Protein — Your Most Important Macro</h3>
+    <p>Protein provides the amino acids needed for muscle protein synthesis (MPS). With Crohn's, protein absorption can be compromised, which means your needs may be higher than the typical recommendation for healthy athletes.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Population</th><th>Protein Target</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>General adult</td><td>0.8 g/kg body weight</td><td>Minimum for basic function</td></tr>
+        <tr><td>Recreational athlete</td><td>1.4–1.7 g/kg</td><td>Standard muscle-building range</td></tr>
+        <tr><td>Crohn's in remission (building)</td><td>1.8–2.2 g/kg</td><td>Higher to compensate for absorption variability</td></tr>
+        <tr><td>Crohn's during flare</td><td>1.5–1.8 g/kg</td><td>Prioritize easily absorbed forms</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <span class="icon">💡</span>
+      <div><b>Example:</b> A 75 kg person with Crohn's in remission aiming to build muscle should target <b>135–165 g of protein per day</b>, spread across 4–5 meals/snacks to maximize absorption.</div>
+    </div>
+
+    <h3>Best Protein Sources for Crohn's</h3>
+    <p>Choose proteins that are easy to digest, low in residue, and well-tolerated. Cooking method matters enormously — well-cooked, moist preparations are far easier to digest than dry or tough preparations.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Source</th><th>Protein (per 100g)</th><th>Tolerability</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Eggs (scrambled/poached)</td><td>13 g</td><td>⭐⭐⭐⭐⭐</td><td>Excellent — soft, complete protein</td></tr>
+        <tr><td>White fish (cod, tilapia)</td><td>18–20 g</td><td>⭐⭐⭐⭐⭐</td><td>Very lean, easy to digest</td></tr>
+        <tr><td>Chicken breast (well-cooked)</td><td>31 g</td><td>⭐⭐⭐⭐</td><td>Remove skin, avoid dry preparations</td></tr>
+        <tr><td>Greek yogurt (plain, low-fat)</td><td>10 g</td><td>⭐⭐⭐⭐</td><td>Contains probiotics — test tolerance</td></tr>
+        <tr><td>Salmon (baked)</td><td>25 g</td><td>⭐⭐⭐⭐</td><td>Good fat profile, anti-inflammatory</td></tr>
+        <tr><td>Whey protein (isolate)</td><td>80–90 g dry</td><td>⭐⭐⭐⭐</td><td>Isolate preferred over concentrate</td></tr>
+        <tr><td>Tofu (silken/soft)</td><td>8 g</td><td>⭐⭐⭐</td><td>Good plant option — test tolerance</td></tr>
+        <tr><td>Lean ground beef (cooked)</td><td>26 g</td><td>⭐⭐⭐</td><td>Well-cooked; limit red meat frequency</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Carbohydrates — Energy &amp; Recovery</h3>
+    <p>Carbohydrates fuel your workouts and replenish muscle glycogen after training. With Crohn's, the key is choosing low-fiber, low-FODMAP options that don't trigger symptoms, especially during or around flares.</p>
+
+    <p><strong>Target:</strong> 3–5 g/kg body weight during remission (scale back to 2–3 g/kg during flares).</p>
+
+    <p>Prioritize <em>refined</em> or well-cooked carbohydrates when symptomatic. This is the rare situation where "processed" carbs may genuinely be the better medical choice. During remission, you can gradually reintroduce more complex, fiber-rich options.</p>
+
+    <h3>Fats — Hormones &amp; Inflammation</h3>
+    <p>Adequate dietary fat is essential for testosterone production (which drives muscle growth) and absorption of fat-soluble vitamins (A, D, E, K) — all of which are commonly deficient in Crohn's patients.</p>
+
+    <p><strong>Target:</strong> 1–1.2 g/kg body weight. Prioritize omega-3 fats (anti-inflammatory) and minimize saturated and trans fats (pro-inflammatory).</p>
+
+    <div class="callout info">
+      <span class="icon">🧬</span>
+      <div><b>Omega-3 and Crohn's:</b> Research suggests omega-3 fatty acids (EPA &amp; DHA from fatty fish or fish oil) have modest anti-inflammatory effects that may benefit Crohn's patients. Aim for 2–3 servings of oily fish per week or consider a high-quality fish oil supplement.</div>
+    </div>
+
+    <h3>Caloric Surplus for Muscle Gain</h3>
+    <p>Building muscle requires a caloric surplus — eating more than you burn. With Crohn's, keep the surplus modest to avoid digestive stress.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Phase</th><th>Surplus / Deficit</th><th>Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Remission — lean bulk</td><td>+200 to +300 kcal/day</td><td>Slow muscle gain with minimal fat gain &amp; gut stress</td></tr>
+        <tr><td>Remission — maintenance</td><td>±0 kcal/day</td><td>Body recomposition possible for newer trainees</td></tr>
+        <tr><td>Flare — maintenance/slight deficit</td><td>0 to –200 kcal</td><td>Gut healing is the priority; preserve muscle</td></tr>
+        <tr><td>Post-surgery / severe flare</td><td>+300 to +500 kcal</td><td>Rebuild wasted tissue — work with dietitian</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 3 ═══ -->
+  <div class="chapter" id="ch3">
+    <p class="chapter-label">Chapter 03</p>
+    <h2 class="chapter-title">Best &amp; Worst Foods for Crohn's Muscle Building</h2>
+
+    <p>Food selection is highly individual with Crohn's — what one person tolerates well, another may not. That said, there are clear patterns in what tends to be well-tolerated and what commonly triggers symptoms.</p>
+
+    <h3>Go-To Foods (Generally Well-Tolerated)</h3>
+    <div class="food-grid">
+      <div class="food-item"><span class="emoji">🥚</span><span class="name">Eggs</span><div class="note">Scrambled, poached, soft-boiled</div></div>
+      <div class="food-item"><span class="emoji">🐟</span><span class="name">White Fish</span><div class="note">Cod, tilapia, sole — steamed or baked</div></div>
+      <div class="food-item"><span class="emoji">🍗</span><span class="name">Chicken Breast</span><div class="note">Poached or baked, no skin</div></div>
+      <div class="food-item"><span class="emoji">🐟</span><span class="name">Salmon</span><div class="note">Rich in omega-3, anti-inflammatory</div></div>
+      <div class="food-item"><span class="emoji">🍚</span><span class="name">White Rice</span><div class="note">Easy to digest, great for energy</div></div>
+      <div class="food-item"><span class="emoji">🥔</span><span class="name">Peeled Potatoes</span><div class="note">Boiled or mashed — no skin during flare</div></div>
+      <div class="food-item"><span class="emoji">🍌</span><span class="name">Ripe Bananas</span><div class="note">Easy on the gut, fast carbs post-workout</div></div>
+      <div class="food-item"><span class="emoji">🫐</span><span class="name">Cooked Berries</span><div class="note">Blueberries — antioxidants, easier cooked</div></div>
+      <div class="food-item"><span class="emoji">🥣</span><span class="name">Oatmeal</span><div class="note">Well-cooked; test tolerance (soluble fiber)</div></div>
+      <div class="food-item"><span class="emoji">🫙</span><span class="name">Greek Yogurt</span><div class="note">Plain, low-fat; probiotics may help</div></div>
+      <div class="food-item"><span class="emoji">🧀</span><span class="name">Cheese (mild)</span><div class="note">If lactose-tolerant; low-lactose options best</div></div>
+      <div class="food-item"><span class="emoji">🍞</span><span class="name">White Bread / Toast</span><div class="note">Low fiber; sourdough often tolerated well</div></div>
+      <div class="food-item"><span class="emoji">🥑</span><span class="name">Avocado</span><div class="note">Healthy fats; start with small portions</div></div>
+      <div class="food-item"><span class="emoji">🫒</span><span class="name">Olive Oil</span><div class="note">Anti-inflammatory cooking fat</div></div>
+      <div class="food-item"><span class="emoji">🍠</span><span class="name">Sweet Potato</span><div class="note">Well-cooked, peeled; nutritious</div></div>
+      <div class="food-item"><span class="emoji">🥤</span><span class="name">Whey Isolate</span><div class="note">Protein supplement — isolate over concentrate</div></div>
+    </div>
+
+    <h3>Foods to Limit or Avoid</h3>
+    <div class="food-grid avoid">
+      <div class="food-item"><span class="emoji">🌾</span><span class="name">High-Fiber Raw Veg</span><div class="note">Broccoli, cauliflower, cabbage, Brussels sprouts</div></div>
+      <div class="food-item"><span class="emoji">🫘</span><span class="name">Legumes</span><div class="note">Beans, lentils — high FODMAP, gassy</div></div>
+      <div class="food-item"><span class="emoji">🌰</span><span class="name">Nuts &amp; Seeds (whole)</span><div class="note">Hard to digest; nut butters may be OK</div></div>
+      <div class="food-item"><span class="emoji">🌶️</span><span class="name">Spicy Foods</span><div class="note">Irritates intestinal lining</div></div>
+      <div class="food-item"><span class="emoji">🍺</span><span class="name">Alcohol</span><div class="note">Disrupts gut lining, triggers flares</div></div>
+      <div class="food-item"><span class="emoji">🥛</span><span class="name">Full-fat Dairy</span><div class="note">If lactose intolerant; test individually</div></div>
+      <div class="food-item"><span class="emoji">🍩</span><span class="name">Ultra-processed Foods</span><div class="note">Emulsifiers may disrupt gut microbiome</div></div>
+      <div class="food-item"><span class="emoji">☕</span><span class="name">Excess Caffeine</span><div class="note">Can stimulate gut motility; use in moderation</div></div>
+      <div class="food-item"><span class="emoji">🧁</span><span class="name">Artificial Sweeteners</span><div class="note">Sorbitol, mannitol — osmotic laxative effect</div></div>
+      <div class="food-item"><span class="emoji">🌮</span><span class="name">Fried &amp; Fatty Foods</span><div class="note">High-fat meals slow digestion, worsen symptoms</div></div>
+    </div>
+
+    <div class="callout warn">
+      <span class="icon">📓</span>
+      <div><b>Keep a food diary.</b> Individual tolerance varies enormously in Crohn's. Track what you eat, your symptoms, and your energy levels for at least 2–3 weeks to identify your personal trigger foods and safe foods. Apps like Cara Care or Cronometer can help.</div>
+    </div>
+
+    <h3>Micronutrients to Watch Closely</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Nutrient</th><th>Why It Matters</th><th>Best Sources</th><th>Supplement?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vitamin D</td><td>Immune function, muscle strength, bone health</td><td>Fatty fish, eggs, sunlight</td><td>Often needed — test levels</td></tr>
+        <tr><td>Vitamin B12</td><td>Energy metabolism, red blood cells</td><td>Meat, fish, eggs (absorbed in terminal ileum — often affected in Crohn's)</td><td>Likely — especially if ileum affected</td></tr>
+        <tr><td>Iron</td><td>Oxygen delivery to muscles</td><td>Red meat, fortified foods</td><td>If deficient — test first</td></tr>
+        <tr><td>Zinc</td><td>Muscle repair, immune function, testosterone</td><td>Meat, eggs, pumpkin seeds</td><td>Consider if deficient</td></tr>
+        <tr><td>Magnesium</td><td>Muscle contraction, sleep, 300+ enzyme reactions</td><td>Spinach (cooked), fish, dark chocolate</td><td>Often low — glycinate form tolerated well</td></tr>
+        <tr><td>Calcium</td><td>Bone density (steroids increase risk)</td><td>Dairy, fortified alternatives</td><td>If dairy-limited</td></tr>
+        <tr><td>Folate</td><td>DNA synthesis, cell repair</td><td>Cooked green vegetables</td><td>Consider if on methotrexate</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 4 ═══ -->
+  <div class="chapter" id="ch4">
+    <p class="chapter-label">Chapter 04</p>
+    <h2 class="chapter-title">Sample Meal Plans</h2>
+
+    <p>Below are two 3-day sample meal plans — one for remission (muscle-building phase) and one for a mild-to-moderate flare (gut-healing phase). Adjust portions to your calorie needs and personal tolerances.</p>
+
+    <h3>Remission Meal Plan (~2,400–2,600 kcal / 160–175 g protein)</h3>
+
+    <div class="meal-plan">
+      <div class="meal-plan-day">
+        <div class="meal-plan-day-header">Day 1</div>
+        <div class="meal-plan-meals">
+          <div class="meal-row"><span class="meal-label">Breakfast</span><span>3 scrambled eggs + 2 slices sourdough toast + 1 ripe banana + 1 cup Greek yogurt (plain)</span></div>
+          <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (30g) + 1 cup cooked oatmeal with blueberries</span></div>
+          <div class="meal-row"><span class="meal-label">Lunch</span><span>Baked salmon (150g) + 1 cup white rice + ½ cup cooked zucchini (no skin) + olive oil drizzle</span></div>
+          <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>Rice cakes (3) + 1 tbsp almond butter + 1 banana</span></div>
+          <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake (30g) with water or lactose-free milk</span></div>
+          <div class="meal-row"><span class="meal-label">Dinner</span><span>Poached chicken breast (150g) + 1.5 cups mashed peeled potato + steamed carrots + olive oil</span></div>
+          <div class="meal-row"><span class="meal-label">Evening</span><span>Cottage cheese (½ cup) + ripe melon cubes</span></div>
+        </div>
+      </div>
+      <div class="meal-plan-day">
+        <div class="meal-plan-day-header">Day 2</div>
+        <div class="meal-plan-meals">
+          <div class="meal-row"><span class="meal-label">Breakfast</span><span>2-egg omelette with mild cheese + 1 cup white rice porridge + apple juice</span></div>
+          <div class="meal-row"><span class="meal-label">Snack</span><span>Greek yogurt (200g) + honey + 1 banana</span></div>
+          <div class="meal-row"><span class="meal-label">Lunch</span><span>Turkey mince (130g) stir-fried in olive oil + 1 cup white pasta + cooked peeled tomato sauce (strained)</span></div>
+          <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>White bread (2 slices) + peanut butter + honey</span></div>
+          <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake + 1 ripe banana</span></div>
+          <div class="meal-row"><span class="meal-label">Dinner</span><span>Baked cod (200g) + 1.5 cups white rice + steamed spinach (cooked) + lemon + olive oil</span></div>
+          <div class="meal-row"><span class="meal-label">Evening</span><span>Casein protein or Greek yogurt + ripe peach</span></div>
+        </div>
+      </div>
+      <div class="meal-plan-day">
+        <div class="meal-plan-day-header">Day 3</div>
+        <div class="meal-plan-meals">
+          <div class="meal-row"><span class="meal-label">Breakfast</span><span>Smoothie: whey isolate (30g) + banana + ripe mango + Greek yogurt + lactose-free milk</span></div>
+          <div class="meal-row"><span class="meal-label">Snack</span><span>3 rice cakes + 2 tbsp smooth peanut butter</span></div>
+          <div class="meal-row"><span class="meal-label">Lunch</span><span>Ground chicken (150g) + baked sweet potato (peeled) + cooked green beans + olive oil</span></div>
+          <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>White bagel + jam + banana</span></div>
+          <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake + 1 cup white rice</span></div>
+          <div class="meal-row"><span class="meal-label">Dinner</span><span>Salmon (150g) + white potato mash + steamed courgette + olive oil + squeeze lemon</span></div>
+          <div class="meal-row"><span class="meal-label">Evening</span><span>Warm milk (lactose-free) + 1 boiled egg</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Flare Meal Plan (~1,800–2,000 kcal / ~120 g protein — gut rest focus)</h3>
+
+    <div class="callout danger">
+      <span class="icon">🚨</span>
+      <div><b>During a flare:</b> Consult your doctor before changing your diet significantly. In severe flares, your gastroenterologist may recommend exclusive enteral nutrition (EEN) — a liquid-only diet of complete nutrition formulas — which has strong evidence for inducing remission, especially in Crohn's.</div>
+    </div>
+
+    <div class="meal-plan">
+      <div class="meal-plan-day">
+        <div class="meal-plan-day-header">Flare Day 1</div>
+        <div class="meal-plan-meals">
+          <div class="meal-row"><span class="meal-label">Breakfast</span><span>Plain white rice porridge (congee) + 1 soft-boiled egg + small amount of grated mild cheese</span></div>
+          <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (25g) with water + banana</span></div>
+          <div class="meal-row"><span class="meal-label">Lunch</span><span>Chicken broth soup with well-cooked white rice noodles + shredded poached chicken + small amount olive oil</span></div>
+          <div class="meal-row"><span class="meal-label">Snack</span><span>Applesauce (unsweetened) + plain crackers</span></div>
+          <div class="meal-row"><span class="meal-label">Dinner</span><span>Steamed white fish (100g) + mashed peeled potato + a little butter</span></div>
+          <div class="meal-row"><span class="meal-label">Evening</span><span>Oral rehydration or electrolyte drink + plain yogurt if tolerated</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <span class="icon">💧</span>
+      <div><b>Hydration is critical during flares.</b> Diarrhea causes significant fluid and electrolyte loss. Aim for at least 2–3 liters of fluid per day. Oral rehydration solutions (ORS) or electrolyte drinks are more effective than plain water when experiencing significant stool output.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 5 ═══ -->
+  <div class="chapter" id="ch5">
+    <p class="chapter-label">Chapter 05</p>
+    <h2 class="chapter-title">Supplements — What's Safe, What's Not</h2>
+
+    <p>The supplement market is vast and often poorly regulated. For people with Crohn's, the potential interactions with medications and gut health make it especially important to be selective and to discuss any new supplements with your doctor.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Supplement</th><th>Purpose</th><th>Status for Crohn's</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Whey Protein Isolate</td>
+          <td>Muscle protein synthesis</td>
+          <td><span class="supp-tag safe">Safe</span></td>
+          <td>Isolate preferred (lower lactose). Mix with water if dairy-sensitive.</td>
+        </tr>
+        <tr>
+          <td>Creatine Monohydrate</td>
+          <td>Strength, muscle volume, recovery</td>
+          <td><span class="supp-tag safe">Generally safe</span></td>
+          <td>One of the most researched supplements. May cause mild GI upset — try lower doses. Start with 3–5g/day (no loading phase).</td>
+        </tr>
+        <tr>
+          <td>Vitamin D3</td>
+          <td>Immune function, muscle strength</td>
+          <td><span class="supp-tag safe">Recommended</span></td>
+          <td>Deficiency is extremely common in IBD. Test and supplement to maintain 50–70 nmol/L. Take with fat-containing meal.</td>
+        </tr>
+        <tr>
+          <td>Vitamin B12</td>
+          <td>Energy, nerve function</td>
+          <td><span class="supp-tag safe">Often needed</span></td>
+          <td>Sublingual or injected forms bypass ileum absorption issues. Discuss with doctor.</td>
+        </tr>
+        <tr>
+          <td>Magnesium Glycinate</td>
+          <td>Muscle function, sleep, recovery</td>
+          <td><span class="supp-tag safe">Safe</span></td>
+          <td>Glycinate form is best tolerated (oxide form causes loose stools). 200–400mg before bed.</td>
+        </tr>
+        <tr>
+          <td>Omega-3 (Fish Oil)</td>
+          <td>Anti-inflammation, heart health</td>
+          <td><span class="supp-tag safe">Beneficial</span></td>
+          <td>2–3g EPA+DHA daily. Take with food to minimize fishy burps. Enteric-coated versions may help.</td>
+        </tr>
+        <tr>
+          <td>Probiotics</td>
+          <td>Gut microbiome balance</td>
+          <td><span class="supp-tag caution">Variable</span></td>
+          <td>Evidence in Crohn's is mixed (stronger for UC). Lactobacillus and Bifidobacterium strains most studied. Discuss with gastroenterologist.</td>
+        </tr>
+        <tr>
+          <td>Iron</td>
+          <td>Oxygen delivery, energy</td>
+          <td><span class="supp-tag caution">With caution</span></td>
+          <td>Test before supplementing — excess is harmful. Ferrous bisglycinate is best tolerated. IV iron may be preferred in active disease.</td>
+        </tr>
+        <tr>
+          <td>Pre-Workout (stimulant)</td>
+          <td>Energy, focus, pump</td>
+          <td><span class="supp-tag caution">Use caution</span></td>
+          <td>High caffeine and artificial sweeteners can worsen symptoms. If used, choose simple formulas with no artificial sweeteners.</td>
+        </tr>
+        <tr>
+          <td>Mass Gainer</td>
+          <td>Calorie surplus</td>
+          <td><span class="supp-tag caution">Use caution</span></td>
+          <td>Often contain lactose, artificial sweeteners, and high fiber. Read labels carefully or build calorie surplus from whole foods instead.</td>
+        </tr>
+        <tr>
+          <td>NSAIDs (ibuprofen)</td>
+          <td>Pain/inflammation (NOT a supplement)</td>
+          <td><span class="supp-tag avoid">Avoid</span></td>
+          <td>NSAIDs can trigger Crohn's flares and damage the gut lining. Use paracetamol (acetaminophen) instead for pain. Always consult your doctor.</td>
+        </tr>
+        <tr>
+          <td>High-dose Zinc</td>
+          <td>Recovery, immune function</td>
+          <td><span class="supp-tag avoid">Avoid excess</span></td>
+          <td>Supplement only if deficient. Excess zinc inhibits copper absorption and can cause GI distress.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>Elemental &amp; semi-elemental formulas:</b> These are medical nutrition products (e.g., Vivonex, Peptamen) where nutrients are pre-digested into simple forms. They're particularly useful during flares, post-surgery, or when normal food intake is severely limited. They can also be used as meal supplements to hit calorie and protein targets without stressing the gut. Ask your gastroenterologist or dietitian about whether these are appropriate for you.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 6 ═══ -->
+  <div class="chapter" id="ch6">
+    <p class="chapter-label">Chapter 06</p>
+    <h2 class="chapter-title">Practical Strategies &amp; Mindset</h2>
+
+    <h3>Eating Frequency &amp; Timing</h3>
+    <p>Smaller, more frequent meals reduce the digestive load at any one time. This is one of the most consistently effective strategies for Crohn's patients — and it aligns well with maximizing muscle protein synthesis, which benefits from protein spread throughout the day rather than consumed in one or two large boluses.</p>
+
+    <p><strong>Aim for 5–6 smaller meals/snacks</strong> spaced 2.5–3.5 hours apart, each containing 25–35g of protein where possible.</p>
+
+    <h3>Training Smart with Crohn's</h3>
+    <p>Resistance training is the essential stimulus for muscle growth, and it is safe and beneficial for most people with Crohn's in remission. However, training approach should adapt to your current health state:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Disease State</th><th>Training Approach</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Full remission, feeling well</td><td>Progressive resistance training 3–5x/week. Focus on compound lifts. Aim for progressive overload.</td></tr>
+        <tr><td>Remission but fatigued</td><td>Train 2–3x/week, reduce volume. Prioritize recovery. Check iron, vitamin D, B12 levels.</td></tr>
+        <tr><td>Mild flare</td><td>Light activity (walking, stretching, bodyweight). No heavy lifting. Focus on nutrition and sleep.</td></tr>
+        <tr><td>Moderate–severe flare</td><td>Rest. Gut healing takes priority. Even gentle activity may be too much. Talk to your doctor.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cooking Tips for Maximum Tolerance</h3>
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Cook everything thoroughly</strong> — well-done is better than al dente when your gut is sensitive</li>
+      <li><strong>Peel all fruits and vegetables</strong> — skins are the highest-fiber part</li>
+      <li><strong>Remove seeds</strong> from fruits and vegetables when possible</li>
+      <li><strong>Steam or poach</strong> rather than fry — fat slows gastric emptying and can worsen symptoms</li>
+      <li><strong>Use a blender</strong> — smoothies and soups let you consume nutrient-dense foods in a form your gut handles easily</li>
+      <li><strong>Introduce new foods one at a time</strong> — wait 2–3 days before adding another to identify reactions</li>
+      <li><strong>Eat slowly and chew thoroughly</strong> — mechanical digestion in the mouth reduces burden on the intestine</li>
+    </ul>
+
+    <h3>Managing the Mental Side</h3>
+    <p>Building muscle with a chronic illness is a long game. Progress will be non-linear — you will have setbacks during flares, periods of lost strength, and times when nutrition is simply about surviving, not thriving. This is normal and expected.</p>
+
+    <div class="callout tip">
+      <span class="icon">🧠</span>
+      <div><b>Redefine progress.</b> During remission, measure progress in muscle and strength. During a flare, progress is managing symptoms, maintaining weight, and keeping protein up. Both are wins. Comparing your journey to healthy athletes without IBD is an unfair and unhelpful benchmark.</div>
+    </div>
+
+    <h3>Key Takeaways</h3>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">1.8–2.2</div><div class="desc">grams of protein per kg/day during remission</div></div>
+      <div class="stat-box"><div class="num">+200–300</div><div class="desc">calorie surplus — keep it modest to protect the gut</div></div>
+      <div class="stat-box"><div class="num">5–6</div><div class="desc">small meals per day rather than 2–3 large ones</div></div>
+      <div class="stat-box"><div class="num">D · B12 · Fe</div><div class="desc">the three most commonly deficient nutrients — test regularly</div></div>
+    </div>
+
+    <div class="callout info">
+      <span class="icon">📋</span>
+      <div>
+        <b>Your Crohn's Muscle-Building Checklist:</b>
+        <ul style="margin-top: 8px; padding-left: 18px; line-height: 1.9;">
+          <li>✅ Regular blood tests: vitamin D, B12, iron/ferritin, zinc, CRP (inflammation marker)</li>
+          <li>✅ Registered dietitian with IBD experience — ideally annually</li>
+          <li>✅ Food &amp; symptom diary for at least 2–3 weeks</li>
+          <li>✅ Protein target hit daily (track with Cronometer or MyFitnessPal)</li>
+          <li>✅ Resistance training plan that adapts to disease activity</li>
+          <li>✅ 7–9 hours of sleep (critical for muscle protein synthesis and gut healing)</li>
+          <li>✅ Stress management — psychological stress is a known flare trigger</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="icon">⚕️</span>
+      <div><b>Disclaimer:</b> This eBook is for educational purposes only and does not constitute medical or dietary advice. Always consult your gastroenterologist, primary care physician, and a registered dietitian before making significant changes to your diet or exercise routine, especially with an active chronic condition like Crohn's disease.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 7 ═══ -->
+  <div class="chapter" id="ch7">
+    <p class="chapter-label">Chapter 07</p>
+    <h2 class="chapter-title">The First Year — Living with a New Diagnosis</h2>
+
+    <p>Getting diagnosed with Crohn's disease is a life-altering moment. For many people it brings a confusing mix of emotions: relief that there is finally a name for what has been happening, fear about what the future holds, grief over the life you imagined, and sometimes deep isolation — because this is a disease you largely carry invisibly.</p>
+
+    <p>The first year is almost universally the hardest. It is a year of learning, adjusting, and slowly building a new relationship with your own body. Understanding what to expect during this period can make it significantly less overwhelming.</p>
+
+    <h3>The Emotional Reality of Early Diagnosis</h3>
+
+    <p>No one warns you that a medical diagnosis can trigger a grief response. But it does. You are mourning the version of yourself that didn't have to think about every meal, every bathroom location, every social event. This is real, and it is valid.</p>
+
+    <p>Common emotional experiences in the first year include:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Denial</strong> — hoping the tests were wrong, delaying treatment</li>
+      <li><strong>Anger</strong> — "Why me?" — especially if you were healthy and active before</li>
+      <li><strong>Anxiety</strong> — constant fear of flares, accidents in public, long-term prognosis</li>
+      <li><strong>Shame</strong> — the nature of the symptoms makes many people feel embarrassed to talk about it</li>
+      <li><strong>Relief</strong> — finally understanding why your body has been struggling</li>
+      <li><strong>Determination</strong> — many people find their most powerful drive to take health seriously after diagnosis</li>
+    </ul>
+
+    <div class="callout tip">
+      <span class="icon">🤝</span>
+      <div><b>You are not alone.</b> Crohn's affects approximately 3 million people in the US alone. Online communities (the Crohn's &amp; Colitis Foundation forums, Reddit's r/CrohnsDisease) can be powerful sources of practical advice and emotional support from people who genuinely understand what you are going through.</div>
+    </div>
+
+    <h3>The Learning Curve: Finding Your Triggers</h3>
+
+    <p>Crohn's is deeply personal. Two people with the same diagnosis, the same disease location, and the same medication may have completely different food tolerances. The first year is largely about running experiments on yourself — carefully and patiently — to understand your own patterns.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card flare">
+        <h4>What to track daily</h4>
+        <ul>
+          <li>What you ate and when</li>
+          <li>Bowel movements (frequency, consistency, blood)</li>
+          <li>Pain levels (1–10) and location</li>
+          <li>Energy and fatigue</li>
+          <li>Stress levels and sleep quality</li>
+          <li>Any medications or supplements taken</li>
+        </ul>
+      </div>
+      <div class="phase-card remission">
+        <h4>Patterns to look for</h4>
+        <ul>
+          <li>Foods that consistently worsen symptoms</li>
+          <li>Foods you always tolerate well</li>
+          <li>Times of day when symptoms peak</li>
+          <li>Correlation between stress and flares</li>
+          <li>Relationship between sleep and next-day gut health</li>
+          <li>How your body responds to exercise</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Building Your Medical Team</h3>
+
+    <p>One of the most important investments you can make in your first year is in the quality of your healthcare team. Crohn's is best managed with a multidisciplinary approach:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Specialist</th><th>Their Role</th><th>How Often</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Gastroenterologist</td><td>Manages diagnosis, endoscopies, medication, and disease monitoring</td><td>Every 3–6 months initially; annually in stable remission</td></tr>
+        <tr><td>IBD Dietitian</td><td>Personalizes nutrition, identifies deficiencies, guides elimination protocols</td><td>Every 3–6 months — invaluable in year one</td></tr>
+        <tr><td>Primary Care Physician</td><td>Blood work, vaccination management, holistic health oversight</td><td>Annually or as needed</td></tr>
+        <tr><td>Psychologist / Therapist</td><td>Mental health support for chronic illness adjustment</td><td>As needed — underutilized but highly beneficial</td></tr>
+        <tr><td>Colorectal Surgeon</td><td>Consulted if strictures, fistulas, or surgical options arise</td><td>As referred by gastroenterologist</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Social Impact — Eating Out, Travel, Work</h3>
+
+    <p>One of the most underestimated challenges of Crohn's is its social footprint. Food is deeply embedded in social life, and suddenly being unable to eat freely — or needing to plan every outing around bathroom access — can lead to isolation and withdrawal.</p>
+
+    <p>Practical approaches that help:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Research restaurants in advance</strong> — most menus are online; identify safe options before you arrive</li>
+      <li><strong>Eat a small safe meal before social events</strong> so hunger doesn't force risky food choices</li>
+      <li><strong>Carry snacks</strong> — your own safe foods, always</li>
+      <li><strong>Use the "Can't Wait" card</strong> (available from Crohn's &amp; Colitis charities) — grants urgent restroom access in most retailers</li>
+      <li><strong>Tell close friends and family</strong> — you don't owe anyone an explanation, but having even one or two people who understand makes a meaningful difference</li>
+      <li><strong>Discuss with your employer</strong> if symptoms affect work — you have legal protections in most countries for chronic illness accommodations</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="icon">🧭</span>
+      <div><b>The first year is a calibration period, not a failure period.</b> Every flare teaches you something. Every food you discover you can't eat narrows down the list. Every strategy that works becomes part of your toolkit. You are not behind — you are learning a new language, and fluency takes time.</div>
+    </div>
+
+    <h3>What "Normal" Looks Like After Year One</h3>
+
+    <p>Most people with Crohn's, by the end of their first full year of active management, have developed:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>A clear list of personal safe foods and trigger foods</li>
+      <li>A medication routine they understand and tolerate</li>
+      <li>Awareness of their early flare warning signs</li>
+      <li>A trusted gastroenterologist they can communicate openly with</li>
+      <li>Emotional acceptance — not resignation, but a working peace with the diagnosis</li>
+    </ul>
+
+    <p>This is the foundation everything else — including muscle building — is built on. You cannot optimize performance without first building stability.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 8 ═══ -->
+  <div class="chapter" id="ch8">
+    <p class="chapter-label">Chapter 08</p>
+    <h2 class="chapter-title">Foods to Heal the Gut</h2>
+
+    <p>The intestinal lining is a single-cell-thick barrier that protects your bloodstream from bacteria, undigested food particles, and toxins. In Crohn's, this barrier is repeatedly damaged by inflammation. Healing it is not just about avoiding trigger foods — it is about actively providing the building blocks the gut needs to repair itself.</p>
+
+    <p>This chapter focuses on the nutritional side of gut healing during remission, and the specific compounds — from food — that support mucosal repair, reduce inflammation, and restore a healthier microbiome.</p>
+
+    <h3>The Gut-Healing Framework</h3>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">1.</div><div class="desc">Remove foods that damage or irritate the gut lining</div></div>
+      <div class="stat-box"><div class="num">2.</div><div class="desc">Restore beneficial bacteria through fermented foods and prebiotics</div></div>
+      <div class="stat-box"><div class="num">3.</div><div class="desc">Repair the mucosa with targeted nutrients</div></div>
+      <div class="stat-box"><div class="num">4.</div><div class="desc">Reinforce with anti-inflammatory foods over time</div></div>
+    </div>
+
+    <h3>Bone Broth — Collagen for the Gut Lining</h3>
+
+    <p>Bone broth is one of the most time-tested gut-healing foods. Long-simmered bones release gelatin (hydrolyzed collagen), glycine, proline, and glutamine — amino acids that directly support the integrity of the intestinal mucosa. Glycine, in particular, has demonstrated anti-inflammatory effects in the gut lining in multiple studies.</p>
+
+    <div class="callout tip">
+      <span class="icon">🍲</span>
+      <div><b>How to use it:</b> Drink 1–2 cups of homemade or quality store-bought bone broth daily during healing phases. Use it as the base for soups and rice dishes. Homemade versions (simmered 12–24 hours) have significantly higher gelatin content than commercial varieties. Add a splash of apple cider vinegar while simmering to help extract minerals from the bones.</div>
+    </div>
+
+    <h3>Gut-Healing Foods: A Practical Guide</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Food</th><th>Key Healing Compounds</th><th>Gut Benefit</th><th>How to Use</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bone broth</td><td>Glycine, glutamine, collagen, proline</td><td>Mucosal repair, reduces intestinal permeability</td><td>1–2 cups daily; use as soup base</td></tr>
+        <tr><td>Salmon / fatty fish</td><td>EPA, DHA (omega-3)</td><td>Reduces intestinal inflammation, supports tight junctions</td><td>2–3x per week, baked or poached</td></tr>
+        <tr><td>Cooked fermented foods (kefir, plain yogurt)</td><td>Lactobacillus, Bifidobacterium</td><td>Restores beneficial bacteria; reduces dysbiosis</td><td>100–200g daily if tolerated; introduce gradually</td></tr>
+        <tr><td>Cooked spinach / dark leafy greens</td><td>Folate, magnesium, vitamin K</td><td>Supports epithelial cell repair and mucosal integrity</td><td>Well-cooked; blended into soups if raw causes symptoms</td></tr>
+        <tr><td>Cooked blueberries / berries</td><td>Anthocyanins, polyphenols</td><td>Antioxidant, anti-inflammatory, supports microbiome diversity</td><td>Cooked or blended; raw may be tolerated in remission</td></tr>
+        <tr><td>Turmeric (with black pepper)</td><td>Curcumin</td><td>Inhibits NF-κB inflammatory pathway; mucosal protection</td><td>Add to soups, rice, or golden milk; combine with fat for absorption</td></tr>
+        <tr><td>Ginger (fresh or cooked)</td><td>Gingerols, shogaols</td><td>Anti-nausea, anti-inflammatory, supports gastric motility</td><td>Grate into broths, teas, or smoothies</td></tr>
+        <tr><td>Avocado</td><td>Oleic acid, vitamin E, glutathione</td><td>Anti-inflammatory, antioxidant, supports gut barrier</td><td>½ avocado daily; well-tolerated by most Crohn's patients</td></tr>
+        <tr><td>Cooked oats</td><td>Beta-glucan (soluble fiber)</td><td>Feeds beneficial bacteria; forms a protective mucilage layer</td><td>Well-cooked, plain; test tolerance carefully</td></tr>
+        <tr><td>Extra-virgin olive oil</td><td>Oleocanthal, polyphenols</td><td>Anti-inflammatory (acts similarly to ibuprofen, but safely); supports microbiome</td><td>2–3 tbsp daily on food; do not overheat</td></tr>
+        <tr><td>Green tea (cooled/weak)</td><td>EGCG (epigallocatechin gallate)</td><td>Potent antioxidant; shown to reduce intestinal inflammation in IBD models</td><td>1–2 weak cups daily; avoid on empty stomach</td></tr>
+        <tr><td>Eggs</td><td>Phosphatidylcholine, complete protein</td><td>Supports mucosal membrane integrity; easy to absorb protein for repair</td><td>Daily; soft preparations preferred</td></tr>
+      </tbody>
+    </table>
+
+    <h3>L-Glutamine — The Gut's Preferred Fuel</h3>
+
+    <p>Glutamine is the primary energy source for enterocytes — the cells lining your intestinal wall. During periods of high inflammation or recovery, demand for glutamine rises significantly and dietary supply may not be enough.</p>
+
+    <p>Foods rich in L-glutamine include: eggs, beef, chicken, fish, dairy products, and cabbage juice (if tolerated). Some practitioners recommend supplemental L-glutamine (5–10g/day) during healing phases, though clinical evidence in Crohn's specifically is still emerging. Discuss with your doctor before supplementing.</p>
+
+    <h3>The Microbiome Connection</h3>
+
+    <p>Crohn's disease is associated with a significantly reduced diversity of gut bacteria (dysbiosis) — particularly lower levels of Faecalibacterium prausnitzii, a bacterium with potent anti-inflammatory properties. Diet is one of the most powerful tools to reshape the microbiome over time.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card remission">
+        <h4>Microbiome-Supporting Foods</h4>
+        <ul>
+          <li>Plain yogurt &amp; kefir (if tolerated)</li>
+          <li>Cooked then cooled white rice (resistant starch)</li>
+          <li>Cooked then cooled potato (resistant starch)</li>
+          <li>Small amounts of cooked leek or carrot tops (prebiotics)</li>
+          <li>Fermented foods: miso, low-sugar kombucha (test tolerance)</li>
+          <li>Diverse fruits and vegetables (in remission)</li>
+        </ul>
+      </div>
+      <div class="phase-card flare">
+        <h4>Microbiome Disruptors to Avoid</h4>
+        <ul>
+          <li>Emulsifiers (polysorbate 80, carrageenan) in processed foods</li>
+          <li>Artificial sweeteners (disrupt microbial balance)</li>
+          <li>Excess alcohol (destroys gut bacteria)</li>
+          <li>Unnecessary antibiotic use</li>
+          <li>Highly processed, low-fiber junk foods</li>
+          <li>Chronic stress (raises cortisol, alters microbiome)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Anti-Inflammatory Eating Protocol</h3>
+
+    <p>Rather than following a single named diet rigidly, think of anti-inflammatory eating as a set of principles you apply with flexibility:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Base every meal on a quality protein</strong> — fish, eggs, or well-cooked lean meat</li>
+      <li><strong>Use olive oil as your primary cooking fat</strong> — 2–3 tbsp per day</li>
+      <li><strong>Include omega-3 rich fish 3x per week</strong> — salmon, mackerel, sardines</li>
+      <li><strong>Add turmeric and ginger to at least one meal daily</strong></li>
+      <li><strong>Eat cooked, peeled fruits and vegetables</strong> in remission — variety supports microbiome diversity</li>
+      <li><strong>Minimize ultra-processed foods completely</strong> — read ingredient labels for emulsifiers</li>
+      <li><strong>Drink bone broth regularly</strong> during healing phases</li>
+      <li><strong>Prioritize sleep</strong> — the gut repairs itself during deep sleep; poor sleep directly impairs mucosal healing</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="icon">⏱</span>
+      <div><b>Gut healing is slow.</b> The intestinal lining can begin to show improvement in weeks, but meaningful mucosal healing typically takes months of consistent effort. Endoscopic evidence of healing (mucosal healing) — one of the most important treatment targets in Crohn's — requires sustained reduction in inflammation, not just symptom relief. Be patient with the process.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 9 ═══ -->
+  <div class="chapter" id="ch9">
+    <p class="chapter-label">Chapter 09</p>
+    <h2 class="chapter-title">Pursuing a Medication-Free Life</h2>
+
+    <div class="callout danger">
+      <span class="icon">🚨</span>
+      <div><b>Important:</b> This chapter discusses dietary and lifestyle approaches to Crohn's management that some patients pursue alongside or instead of conventional medication. <b>Never stop or reduce prescribed medication without discussing it first with your gastroenterologist.</b> Unmanaged inflammation — even without symptoms — can cause irreversible intestinal damage, strictures, fistulas, and increase colorectal cancer risk over time. Any med-reduction plan must be monitored with regular blood work and endoscopy.</div>
+    </div>
+
+    <p>That said — the aspiration to manage Crohn's with as little medication as possible, or to achieve deep remission through diet and lifestyle alone, is a legitimate and increasingly studied goal. Research into dietary interventions for IBD has grown significantly in the past decade, and a subset of patients do achieve and sustain remission through non-pharmacological means.</p>
+
+    <p>This chapter outlines what the evidence says, what the realistic expectations are, and how to approach this goal responsibly.</p>
+
+    <h3>What Does "Medication-Free" Actually Mean?</h3>
+
+    <p>For most people, "medication-free" is a spectrum, not a binary switch. The realistic goal for many is:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>Reducing reliance on steroids (the most harmful long-term)</li>
+      <li>Potentially reducing doses of maintenance medications over time</li>
+      <li>Achieving and sustaining clinical remission through diet, sleep, and stress management</li>
+      <li>Minimizing the number of flares per year</li>
+      <li>Slowing disease progression to reduce or delay the need for biologics or surgery</li>
+    </ul>
+
+    <p>A minority of patients — particularly those with milder disease, caught early, in specific locations — may achieve full remission and remain off medication long-term under close monitoring. This is not guaranteed, and it is not possible for everyone.</p>
+
+    <h3>The Specific Carbohydrate Diet (SCD)</h3>
+
+    <p>The Specific Carbohydrate Diet is one of the most studied dietary interventions for Crohn's. It eliminates all grains, refined sugars, most dairy, and complex starches — essentially removing the carbohydrates that feed dysbiotic bacteria in the gut.</p>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>The evidence:</b> The PRODUCE trial (2021, published in Gastroenterology) showed that the SCD was comparable to the Mediterranean diet in achieving clinical remission in pediatric Crohn's disease over 12 weeks. Both diets outperformed the standard American diet for symptom control. Adult data is more limited but promising.</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>SCD: Allowed</th><th>SCD: Excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>All meats, fish, eggs</td><td>All grains (wheat, rice, oats, corn)</td></tr>
+        <tr><td>Most non-starchy vegetables (cooked)</td><td>Refined sugars and most sweeteners</td></tr>
+        <tr><td>Most fruits</td><td>Most dairy (except homemade 24-hr fermented yogurt)</td></tr>
+        <tr><td>Nuts and nut butters</td><td>Starchy vegetables (potatoes, sweet potato)</td></tr>
+        <tr><td>Honey (small amounts)</td><td>Canned or processed foods with additives</td></tr>
+        <tr><td>Homemade 24-hr fermented yogurt</td><td>Legumes (most)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <span class="icon">⚠️</span>
+      <div><b>SCD and muscle building:</b> The elimination of rice, oats, and potatoes makes it harder to hit carbohydrate and calorie targets for muscle gain. If you follow SCD while building muscle, you will need to rely more heavily on fruit, honey, and root vegetables (carrots, squash) for carbohydrates. Work with a dietitian to ensure caloric adequacy.</div>
+    </div>
+
+    <h3>The Crohn's Disease Exclusion Diet (CDED)</h3>
+
+    <p>The CDED is a structured dietary protocol developed specifically for Crohn's disease, designed to reduce exposure to dietary components that may negatively affect the gut microbiome and intestinal barrier. It has shown strong clinical evidence — including in combination with partial enteral nutrition (PEN).</p>
+
+    <p>The CDED reduces or eliminates: red and processed meat, dairy fat, wheat gluten, refined sugars, emulsifiers, and excess animal fat. It is less restrictive than the SCD and more practical for long-term adherence.</p>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>The evidence:</b> The DIETOMICS trial and subsequent studies showed CDED + partial enteral nutrition achieved remission in 75% of pediatric Crohn's patients at 6 weeks — comparable to exclusive enteral nutrition. Adult trials show similar promise. It is now endorsed by several European IBD guidelines as a valid remission-induction strategy.</div>
+    </div>
+
+    <h3>Exclusive Enteral Nutrition (EEN) — A Non-Drug Remission Induction</h3>
+
+    <p>EEN — a period of consuming only a complete liquid nutrition formula, with no solid food — is one of the most evidence-backed non-pharmaceutical ways to induce remission in Crohn's. It is particularly effective in small bowel Crohn's and is the first-line treatment over steroids for children with active disease in many countries.</p>
+
+    <p>EEN is typically used for 6–8 weeks to induce remission, after which solid foods are gradually reintroduced. It is not a long-term solution, but it can be used in place of steroids, avoiding the significant side effects of corticosteroids (bone density loss, weight gain, adrenal suppression).</p>
+
+    <h3>Lifestyle Pillars for Medication-Free Management</h3>
+
+    <p>Diet alone is not sufficient for most people to manage Crohn's without medication. The following lifestyle factors have the strongest evidence for reducing flare frequency and supporting remission:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Pillar</th><th>What to Do</th><th>Why It Matters</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sleep</td><td>7–9 hours; consistent bedtime; dark, cool room</td><td>Sleep deprivation elevates inflammatory cytokines and directly increases flare risk. Multiple studies link poor sleep to IBD activity.</td></tr>
+        <tr><td>Stress Management</td><td>Therapy, meditation, breathwork, journaling, yoga</td><td>The gut-brain axis is real. Psychological stress directly alters intestinal permeability and microbiome composition.</td></tr>
+        <tr><td>Exercise</td><td>Regular moderate-intensity activity; resistance training in remission</td><td>Reduces systemic inflammation, improves microbiome diversity, supports mental health. Avoid overtraining — high-intensity exercise during stress can trigger flares.</td></tr>
+        <tr><td>Smoking cessation</td><td>Stop completely — seek professional support</td><td>Smoking is one of the strongest known worseners of Crohn's disease activity. Smokers have more flares, more surgery, and worse outcomes. This is non-negotiable.</td></tr>
+        <tr><td>Alcohol reduction</td><td>Minimize or eliminate</td><td>Alcohol disrupts the gut barrier, kills beneficial bacteria, and is a consistent flare trigger.</td></tr>
+        <tr><td>NSAID avoidance</td><td>Use paracetamol for pain instead</td><td>Ibuprofen and aspirin damage the gut mucosa and are associated with flare induction in IBD.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>How to Have the Conversation with Your Doctor</h3>
+
+    <p>If you want to explore reducing medication, the most important thing you can do is approach your gastroenterologist as a partner, not an adversary. The goal is the same — sustained remission with minimal long-term harm.</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Ask for objective markers</strong> — fecal calprotectin, CRP, and endoscopy show mucosal healing, which is a much stronger indicator than symptoms alone</li>
+      <li><strong>Propose a structured monitoring plan</strong> — offer to have blood work and calprotectin every 3 months during any reduction phase</li>
+      <li><strong>Document your dietary changes</strong> — show your food diary, your symptom log, your supplement protocol; demonstrate you are being systematic</li>
+      <li><strong>Start with the most side-effect-prone medications</strong> — most doctors agree steroids should be minimized; that is often common ground</li>
+      <li><strong>Accept the process is slow</strong> — responsible de-escalation of medication takes 12–24 months of stable remission before consideration</li>
+    </ul>
+
+    <div class="callout tip">
+      <span class="icon">📊</span>
+      <div><b>Track your calprotectin.</b> Fecal calprotectin is a non-invasive marker of gut inflammation that you can test at home with kits or through your doctor. It is far more sensitive than how you feel — you can have active inflammation without symptoms. Calprotectin below 50 µg/g is generally considered normal; levels consistently below 100 µg/g suggest good mucosal control. Use it to guide decisions, not just symptom scores.</div>
+    </div>
+
+    <h3>Realistic Expectations</h3>
+
+    <div class="phase-grid">
+      <div class="phase-card remission">
+        <h4>What is possible for some</h4>
+        <ul>
+          <li>Full remission maintained through diet + lifestyle</li>
+          <li>Significant reduction in flare frequency</li>
+          <li>Reducing from biologics to mesalazine</li>
+          <li>Eliminating steroid dependency</li>
+          <li>Delaying or avoiding surgery</li>
+          <li>Improving quality of life beyond medication alone</li>
+        </ul>
+      </div>
+      <div class="phase-card flare">
+        <h4>What requires honesty</h4>
+        <ul>
+          <li>Not everyone can achieve med-free remission</li>
+          <li>Disease location and severity matter enormously</li>
+          <li>Penetrating or stricturing disease often requires medication</li>
+          <li>Mucosal healing must be verified — not just assumed</li>
+          <li>Stopping medication without monitoring risks silent damage</li>
+          <li>Diet works best alongside medicine, not always instead of it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="icon">🌱</span>
+      <div><b>The goal is not to reject medicine — it is to create conditions where less of it is needed.</b> Diet, sleep, stress management, and exercise are not alternatives to your gastroenterologist's care. They are multipliers on it. The patients who do best with Crohn's long-term are almost always those who take both their medical treatment and their lifestyle seriously.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 10 ═══ -->
+  <div class="chapter" id="ch10">
+    <p class="chapter-label">Chapter 10</p>
+    <h2 class="chapter-title">Dietary Approaches for Crohn's — All Routes Compared</h2>
+
+    <p>There is no single universally prescribed diet for Crohn's disease — and that is both the frustration and the opportunity. Different dietary philosophies take fundamentally different approaches to managing gut inflammation, from eliminating all plant foods to eliminating all animal foods, from restricting specific carbohydrates to restructuring the entire macronutrient profile. Each has a rationale, a body of evidence (or lack thereof), practical tradeoffs, and a type of person it tends to suit best.</p>
+
+    <p>This chapter gives you an honest, comparative overview of every major dietary approach relevant to Crohn's — so you can make an informed choice, or combine elements intelligently rather than following one ideology blindly.</p>
+
+    <h3>At a Glance: All Approaches Compared</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Diet</th><th>Core Principle</th><th>Evidence in IBD</th><th>Best For</th><th>Hardest Part</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Carnivore / Animal-Based</td><td>Eliminate all plants; eat only animal foods</td><td>Anecdotal + emerging case series</td><td>Severe plant sensitivity; maximum elimination</td><td>Social isolation; microbiome long-term</td></tr>
+        <tr><td>Specific Carbohydrate (SCD)</td><td>Eliminate grains, refined sugar, most dairy</td><td>Strong — multiple RCTs in Crohn's</td><td>Pediatric &amp; adult Crohn's; gut dysbiosis</td><td>Eliminates rice, oats, potatoes (hard for muscle building)</td></tr>
+        <tr><td>Crohn's Disease Exclusion Diet (CDED)</td><td>Reduce specific pro-inflammatory foods systematically</td><td>Very strong — Lancet, 2019</td><td>Remission induction; structured phased approach</td><td>Requires dietitian support to implement properly</td></tr>
+        <tr><td>Mediterranean</td><td>Whole foods, olive oil, fish, vegetables, moderate grains</td><td>Strong — PRODUCE trial, DINE-CD</td><td>Remission maintenance; sustainable long-term</td><td>Fiber may be challenging during flares</td></tr>
+        <tr><td>Low-FODMAP</td><td>Reduce fermentable carbohydrates</td><td>Strong for IBS; moderate for IBD functional symptoms</td><td>Patients in remission with ongoing IBS-like symptoms</td><td>Restrictive; not designed as long-term</td></tr>
+        <tr><td>Paleo / Ancestral</td><td>Whole foods only; no grains, legumes, dairy, or processed food</td><td>Limited in IBD specifically; overlap with SCD</td><td>Patients who want an unprocessed whole-food template</td><td>Carbohydrate variety limited; social difficulty</td></tr>
+        <tr><td>Vegetarian</td><td>Eliminate meat; retain eggs and dairy</td><td>Limited IBD-specific data; generally anti-inflammatory</td><td>Patients who tolerate plant foods and prefer ethical eating</td><td>Protein targets harder; legumes often poorly tolerated</td></tr>
+        <tr><td>Vegan / Plant-Based</td><td>Eliminate all animal products</td><td>Limited in IBD; some positive microbiome data</td><td>Patients with clear meat intolerance; philosophical preference</td><td>B12, zinc, iron deficiency risk — severe in Crohn's</td></tr>
+        <tr><td>Exclusive Enteral Nutrition (EEN)</td><td>100% liquid formula; no solid food</td><td>Very strong — matches steroids for remission induction</td><td>Active flare; remission induction without drugs; post-surgery</td><td>No solid food for 6–8 weeks; palatability</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="divider" />
+
+    <h3>1. The Carnivore / Animal-Based Diet</h3>
+
+    <p>The carnivore diet eliminates all plant foods and is built exclusively on animal products: meat, fish, eggs, and animal fats. It represents the most extreme elimination approach available and has generated significant interest following high-profile public cases of remission.</p>
+
+    <p><strong>The rationale:</strong> Simultaneous elimination of lectins, oxalates, phytates, FODMAPs, and all plant fiber removes every potential plant-based trigger at once. Ketosis from low-carb eating inhibits the NLRP3 inflammasome. Pre-formed butyrate from butter and ghee feeds colonocytes directly without requiring fiber fermentation.</p>
+
+    <div class="phase-grid">
+      <div class="phase-card remission">
+        <h4>Carnivore Strengths</h4>
+        <ul>
+          <li>Complete elimination of plant triggers</li>
+          <li>Maximum protein bioavailability</li>
+          <li>Rich in zinc, B12, iron, vitamin A (liver)</li>
+          <li>Very low bowel residue — gut rest</li>
+          <li>Anti-inflammatory ketosis</li>
+          <li>Excellent for muscle building (creatine, protein)</li>
+        </ul>
+      </div>
+      <div class="phase-card flare">
+        <h4>Carnivore Weaknesses</h4>
+        <ul>
+          <li>No long-term RCT safety data in Crohn's</li>
+          <li>Eliminates plant polyphenols and prebiotics</li>
+          <li>Microbiome diversity drops significantly</li>
+          <li>Vitamin C and folate require organ meat inclusion</li>
+          <li>Socially isolating and hard to sustain</li>
+          <li>Not suitable for everyone (ethics, preference)</li>
+        </ul>
+      </div>
+    </div>
+
+    <p><strong>Key foods:</strong> Fatty beef, lamb, bison, organ meats (especially liver), bone broth, eggs, butter/ghee, salmon, sardines.</p>
+
+    <p><strong>Best used as:</strong> A 30–90 day elimination protocol to establish a symptom-free baseline, followed by careful reintroduction. Most practitioners suggest it as a therapeutic phase rather than a permanent diet.</p>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>The Mikhaila Peterson case:</b> Diagnosed with juvenile arthritis and Crohn's, she progressively eliminated foods until arriving at beef, salt, and water only (the "Lion Diet"). She reports complete symptom resolution and elimination of all medication since approximately 2018 — one of the most documented public cases of dietary-driven IBD remission.</div>
+    </div>
+
+    <hr class="divider" />
+
+    <h3>2. The Specific Carbohydrate Diet (SCD)</h3>
+
+    <p>Developed originally by Dr. Sidney Haas in the 1920s and popularized for IBD by Elaine Gottschall's book <em>Breaking the Vicious Cycle</em>, the SCD eliminates all complex carbohydrates — grains, refined sugars, most dairy, and starchy vegetables — while permitting meats, fish, eggs, most fruits and non-starchy vegetables, nuts, and homemade 24-hour fermented yogurt.</p>
+
+    <p><strong>The rationale:</strong> Complex carbohydrates feed dysbiotic bacteria in the damaged gut, perpetuating the inflammation cycle. By removing the substrate for harmful bacterial overgrowth, the SCD aims to restore a healthier microbial environment that allows the gut lining to heal.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>SCD Allowed</th><th>SCD Excluded</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>All meats, fish, eggs</td><td>All grains (wheat, rice, corn, oats)</td></tr>
+        <tr><td>Most fruits and non-starchy vegetables</td><td>Refined sugars, syrups, additives</td></tr>
+        <tr><td>Nuts and nut butters</td><td>Most dairy (except 24-hr yogurt)</td></tr>
+        <tr><td>Homemade 24-hr fermented yogurt</td><td>Starchy vegetables (potato, sweet potato, yam)</td></tr>
+        <tr><td>Honey (small amounts)</td><td>Canned/processed foods with additives</td></tr>
+        <tr><td>Dried legumes (specific preparation)</td><td>Starchy legumes (chickpeas, lentils without soaking)</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Evidence:</strong> The PRODUCE trial (Gastroenterology, 2021) showed SCD achieved clinical remission in ~47% of pediatric Crohn's patients at 12 weeks — comparable to steroid induction. Multiple pediatric case series show mucosal healing in SCD responders.</p>
+
+    <p><strong>Challenge for muscle building:</strong> The exclusion of rice, oats, and potatoes limits easy carbohydrate sources. Focus on fruit (bananas, ripe mango, melon), honey, and winter squash for workout energy.</p>
+
+    <hr class="divider" />
+
+    <h3>3. The Crohn's Disease Exclusion Diet (CDED)</h3>
+
+    <p>The CDED is a structured, phased dietary protocol developed specifically for Crohn's disease by Dr. Arie Levine and colleagues in Israel. Unlike the SCD, it is designed to be practical and achievable with a clear protocol across three phases.</p>
+
+    <p><strong>Core exclusions:</strong> Red and processed meat, wheat gluten, dairy fat (butter, cream), refined sugars, emulsifiers (polysorbate 80, carrageenan), excess animal fat, canned foods with additives.</p>
+
+    <p><strong>Core inclusions:</strong> Lean poultry, fish, eggs, specific fruits and vegetables, white potato (cooked), small amounts of lean red meat later, olive oil, and 50% of calories from a partial enteral formula in Phase 1.</p>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>The landmark evidence:</b> The CDED + partial enteral nutrition trial (Lancet Gastroenterology &amp; Hepatology, 2019) showed 75% clinical remission at 12 weeks and maintained remission in 45.5% at 24 weeks — significantly outperforming exclusive enteral nutrition alone. This is currently the strongest dietary evidence for remission induction in Crohn's and has influenced European IBD guidelines.</div>
+    </div>
+
+    <p><strong>Best suited for:</strong> People who want a structured, evidence-backed dietary protocol with clear phases. Requires a dietitian to implement properly. Works well in combination with partial enteral nutrition during the induction phase.</p>
+
+    <hr class="divider" />
+
+    <h3>4. The Mediterranean Diet</h3>
+
+    <p>The Mediterranean diet is built on whole foods, extra-virgin olive oil, abundant vegetables and fruits, fish (especially oily fish), whole grains, legumes, nuts, and moderate dairy — with red meat and processed foods minimized.</p>
+
+    <p><strong>Why it works for Crohn's:</strong> It is simultaneously anti-inflammatory (high omega-3, polyphenols, oleocanthal from olive oil), microbiome-supportive (diverse fibers, fermented dairy), and gut-healing (fish, olive oil, vegetable polyphenols). It is the most sustainable long-term dietary pattern in this list.</p>
+
+    <p><strong>Evidence:</strong> The PRODUCE trial (2021) showed Mediterranean diet achieved equivalent remission rates to SCD in pediatric Crohn's. The DINE-CD trial (2022) confirmed comparable symptom improvement in adults. It is the diet most consistently recommended for IBD maintenance by European gastroenterology societies.</p>
+
+    <p><strong>Challenge for Crohn's:</strong> During flares, the fiber load from raw vegetables, legumes, and whole grains can be problematic. The Mediterranean diet needs to be modified toward well-cooked, peeled vegetables and reduced legumes during active disease, then expanded back during remission.</p>
+
+    <p><strong>Best suited for:</strong> Patients in stable remission who want a sustainable, socially compatible eating pattern with strong long-term health evidence.</p>
+
+    <hr class="divider" />
+
+    <h3>5. The Low-FODMAP Diet</h3>
+
+    <p>The low-FODMAP diet restricts Fermentable Oligosaccharides, Disaccharides, Monosaccharides, and Polyols — specific types of carbohydrates that are poorly absorbed in the small intestine and rapidly fermented by gut bacteria, producing gas, bloating, and osmotic diarrhea.</p>
+
+    <p><strong>Important nuance:</strong> Low-FODMAP does not treat the underlying inflammation of Crohn's. It treats the functional symptoms — the bloating, pain, and altered bowel habits — that persist even when inflammation is controlled. It is most relevant for Crohn's patients in clinical remission who still experience IBS-like symptoms (a very common and underdiagnosed presentation).</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>High-FODMAP (Restrict)</th><th>Low-FODMAP (Generally Safe)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Wheat, rye, onion, garlic</td><td>Rice, oats (in moderate amounts), potato</td></tr>
+        <tr><td>Apples, pears, watermelon, mango</td><td>Bananas, blueberries, oranges, grapes</td></tr>
+        <tr><td>Milk, soft cheese, yogurt (high lactose)</td><td>Lactose-free dairy, hard cheeses, butter</td></tr>
+        <tr><td>Beans, lentils, chickpeas</td><td>Tofu, tempeh (firm), eggs, meat, fish</td></tr>
+        <tr><td>Honey, high-fructose corn syrup</td><td>Maple syrup (small amounts), white sugar</td></tr>
+        <tr><td>Cauliflower, mushrooms, asparagus</td><td>Carrots, zucchini, cucumber, lettuce</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Evidence:</strong> A 2019 Journal of Crohn's and Colitis study found 52% of patients reported significant improvement and 26% achieved complete functional symptom resolution within 6 weeks of low-FODMAP.</p>
+
+    <p><strong>Best used as:</strong> A 6–8 week elimination phase to identify FODMAP triggers, followed by systematic reintroduction. Not a permanent diet — long-term FODMAP restriction reduces microbiome diversity.</p>
+
+    <hr class="divider" />
+
+    <h3>6. The Paleo / Ancestral Diet</h3>
+
+    <p>The paleo diet eliminates all foods unavailable to pre-agricultural humans: grains, legumes, dairy, refined sugars, and processed foods. It permits meat, fish, eggs, vegetables, fruits, nuts, and seeds.</p>
+
+    <p><strong>Overlap with SCD:</strong> Paleo and SCD share significant overlap — both eliminate grains, refined sugars, and most processed foods. Paleo additionally excludes all dairy and legumes (SCD allows some legumes and homemade yogurt).</p>
+
+    <p><strong>Why it may help Crohn's:</strong> Eliminating all processed foods, grains, and refined sugars removes many common gut irritants in one step. The whole-food animal and plant mix provides a strong nutrient density and avoids the emulsifiers and additives most strongly implicated in gut barrier disruption.</p>
+
+    <p><strong>Limitation:</strong> No Crohn's-specific RCTs. Evidence is extrapolated from the SCD literature and general inflammatory condition research. Works best as a whole-food framework rather than a strict ideology.</p>
+
+    <hr class="divider" />
+
+    <h3>7. Vegetarian Diet</h3>
+
+    <p>A vegetarian diet excludes meat but retains eggs and dairy (lacto-ovo vegetarian). It can be highly anti-inflammatory when built around whole plant foods, eggs, fish (pescatarian variant), and quality dairy — but requires careful planning for Crohn's.</p>
+
+    <p><strong>Potential benefits for Crohn's:</strong></p>
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>Plant polyphenols (from berries, olive oil, turmeric) are among the strongest dietary anti-inflammatories known</li>
+      <li>High dietary diversity supports microbiome richness</li>
+      <li>Avoidance of red and processed meat — both associated with worse IBD outcomes in observational studies</li>
+      <li>Eggs provide excellent, easily digested complete protein</li>
+    </ul>
+
+    <p><strong>Significant challenges for Crohn's:</strong></p>
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>Legumes (beans, lentils) — the primary plant protein source — are frequently poorly tolerated in Crohn's due to high FODMAP content and fiber load</li>
+      <li>High-fiber vegetables and nuts that vegetarians rely on are often trigger foods during flares</li>
+      <li>Hitting 1.8–2.2g/kg protein for muscle building is genuinely difficult without meat, especially during flares when legumes are restricted</li>
+      <li>Iron and zinc from plant sources are significantly less bioavailable than from animal sources — both frequently deficient in Crohn's</li>
+    </ul>
+
+    <div class="callout tip">
+      <span class="icon">🐟</span>
+      <div><b>Consider pescatarian:</b> Adding fish to a vegetarian diet solves most of the nutritional challenges specific to Crohn's — providing complete protein, omega-3, vitamin D, B12, and zinc in highly bioavailable forms with minimal gut burden. Salmon, cod, and white fish are among the most universally tolerated protein sources in Crohn's across all dietary frameworks.</div>
+    </div>
+
+    <p><strong>Best protein sources for vegetarian Crohn's patients:</strong> Eggs (primary), Greek yogurt (if tolerated), firm tofu (test tolerance), white fish if pescatarian, whey or egg white protein isolate, well-cooked lentils in small amounts during remission only.</p>
+
+    <hr class="divider" />
+
+    <h3>8. Vegan / Whole-Food Plant-Based Diet</h3>
+
+    <p>A vegan diet eliminates all animal products. A whole-food plant-based (WFPB) diet adds the restriction of processed plant foods. Both have generated significant positive press for general health, but present specific and significant challenges for Crohn's patients that must be addressed directly and honestly.</p>
+
+    <p><strong>Potential benefits:</strong></p>
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>Highest dietary fiber and polyphenol intake of any approach — theoretically maximally supportive of microbiome diversity</li>
+      <li>Strongly anti-inflammatory when built on whole foods</li>
+      <li>Avoids all saturated animal fat and processed meat</li>
+      <li>Some observational studies link plant-based diets with lower IBD incidence in populations</li>
+    </ul>
+
+    <div class="callout danger">
+      <span class="icon">🚨</span>
+      <div><b>Critical warning for Crohn's patients considering veganism:</b> Crohn's disease already causes significantly elevated risk of vitamin B12, zinc, iron, vitamin D, and calcium deficiency due to malabsorption. A vegan diet that eliminates all animal sources of these nutrients dramatically increases this risk. Vegan Crohn's patients <b>must</b> supplement B12, vitamin D3 (vegan algae-based), zinc, and iron (after testing) and work with a dietitian to monitor levels every 3–6 months. The high-fiber nature of most vegan diets is also frequently poorly tolerated during and around flares.</div>
+    </div>
+
+    <p><strong>If you choose a vegan approach:</strong></p>
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li>Rely on silken tofu, smooth nut butters, and well-cooked soft legumes as primary proteins — test each carefully</li>
+      <li>Use plant-based protein powders (pea or rice isolate) to hit protein targets without additional fiber burden</li>
+      <li>Cook all vegetables thoroughly and peel when possible during flares</li>
+      <li>Prioritize cooked rather than raw — smoothies can be a useful vehicle for nutrition without raw fiber burden</li>
+      <li>Non-negotiable supplements: B12, D3 (algae), iron (after testing), zinc, omega-3 (algae-based DHA/EPA), calcium if dairy-free</li>
+    </ul>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Nutrient</th><th>Vegan Risk in Crohn's</th><th>Vegan Solution</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Vitamin B12</td><td>Critical — no plant source; severely elevated risk with ileal disease</td><td>Sublingual B12 supplement daily (methylcobalamin preferred)</td></tr>
+        <tr><td>Zinc</td><td>High — plant zinc poorly absorbed; already depleted in IBD</td><td>Zinc bisglycinate supplement; pumpkin seeds, hemp seeds</td></tr>
+        <tr><td>Iron</td><td>High — non-heme iron absorption poor; chronic GI blood loss worsens deficit</td><td>Test ferritin every 3 months; ferrous bisglycinate supplement with vitamin C</td></tr>
+        <tr><td>Vitamin D3</td><td>High — most D3 supplements are from animal lanolin; sun exposure limited</td><td>Algae-derived D3 supplement; test levels every 6 months</td></tr>
+        <tr><td>Omega-3 (EPA/DHA)</td><td>Moderate — ALA from plants poorly converts to EPA/DHA</td><td>Algae-based EPA/DHA supplement (2g daily)</td></tr>
+        <tr><td>Complete protein</td><td>Moderate — most plant proteins are incomplete; legumes often poorly tolerated</td><td>Combine rice + pea protein powder; tofu + grain combinations</td></tr>
+      </tbody>
+    </table>
+
+    <hr class="divider" />
+
+    <h3>9. Exclusive Enteral Nutrition (EEN)</h3>
+
+    <p>EEN is not a "diet" in the conventional sense — it is a medically prescribed period of consuming only a complete liquid nutritional formula, with no solid food whatsoever. It is the most evidence-backed non-pharmaceutical remission induction strategy available for Crohn's disease.</p>
+
+    <p><strong>How it works:</strong> By eliminating all solid food, EEN provides complete gut rest while delivering all required nutrients in a pre-digested, maximally absorbable form. It dramatically reduces intestinal antigen exposure, shifts the microbiome, reduces intestinal permeability, and allows the mucosal lining to heal.</p>
+
+    <p><strong>The evidence:</strong> EEN achieves equivalent remission rates to corticosteroids (approximately 80%) in pediatric Crohn's, while uniquely producing mucosal healing — something steroids do not do. It is the first-line over steroids for pediatric Crohn's induction in the UK and many European countries. A 2018 meta-analysis of 27 studies confirmed these findings across thousands of patients.</p>
+
+    <p><strong>Typical protocol:</strong> 6–8 weeks of exclusive formula feeding (polymeric or semi-elemental formulas such as Modulen IBD, Peptamen, or Ensure), followed by systematic reintroduction of solid foods — ideally following the CDED protocol — to identify triggers and maintain remission.</p>
+
+    <p><strong>Practical reality:</strong> Six weeks of drinking only formula is psychologically challenging. Compliance rates are lower in adults than children. Nasogastric tube feeding overnight (while sleeping) is an option that dramatically improves compliance by allowing normal social daytime function.</p>
+
+    <hr class="divider" />
+
+    <h3>Choosing Your Approach: A Decision Framework</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Your Situation</th><th>Best Starting Approach</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Active flare, trying to avoid steroids</td><td>EEN (most evidence) or CDED + partial enteral nutrition</td></tr>
+        <tr><td>In remission, want maximum gut healing</td><td>Mediterranean diet or CDED maintenance phase</td></tr>
+        <tr><td>Severe plant sensitivity suspected</td><td>Carnivore elimination (30–90 days) then systematic reintroduction</td></tr>
+        <tr><td>In remission but functional IBS-like symptoms remain</td><td>Low-FODMAP (6–8 week elimination then reintroduction)</td></tr>
+        <tr><td>Want structured evidence-based protocol</td><td>SCD or CDED — both have RCT evidence</td></tr>
+        <tr><td>Vegetarian or ethical preference</td><td>Pescatarian Mediterranean; supplement B12, zinc, iron aggressively</td></tr>
+        <tr><td>Vegan by strong preference</td><td>Whole-food plant-based with mandatory supplementation; work with IBD dietitian</td></tr>
+        <tr><td>Want sustainable long-term maintenance</td><td>Mediterranean or modified paleo whole-food template</td></tr>
+        <tr><td>Building muscle in remission</td><td>High-protein Mediterranean, SCD with fruit-based carbs, or carnivore</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout tip">
+      <span class="icon">🧩</span>
+      <div><b>You don't have to pick one forever.</b> Many successful Crohn's patients use a phased approach: EEN or carnivore for induction during a flare, CDED or SCD for the healing phase, then Mediterranean for long-term maintenance. The goal at every stage is different — and the best diet for each stage may not be the same one.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 11 ═══ -->
+  <div class="chapter" id="ch11">
+    <p class="chapter-label">Chapter 11</p>
+    <h2 class="chapter-title">The Mind-Gut Connection: Stress, Psychology &amp; Exercise</h2>
+
+    <p>Of all the factors that influence Crohn's disease activity, the relationship between the mind and the gut is among the most powerful — and the most underestimated. This is not about "it's all in your head." The gut-brain axis is a bidirectional neurological and biochemical highway, and inflammation in the gut reliably affects mood, cognition, and mental health, while psychological stress reliably worsens gut inflammation.</p>
+
+    <p>Understanding this connection is not optional for anyone managing Crohn's seriously. It is mechanistic, measurable, and — most importantly — addressable.</p>
+
+    <h3>The Psychological Burden of Crohn's Disease</h3>
+
+    <p>The mental health impact of Crohn's is substantial and often undertreated. People with IBD experience significantly higher rates of anxiety and depression than the general population — not as a secondary effect, but as a direct consequence of chronic illness, pain, unpredictability, and social limitation.</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">2–3×</div><div class="desc">Higher prevalence of anxiety disorders in IBD patients vs. general population</div></div>
+      <div class="stat-box"><div class="num">~30%</div><div class="desc">Of Crohn's patients meet clinical criteria for depression at any given time</div></div>
+      <div class="stat-box"><div class="num">↑40%</div><div class="desc">Increased flare risk in the 6 months following a major stressful life event</div></div>
+      <div class="stat-box"><div class="num">↑25%</div><div class="desc">Improvement in quality of life scores when psychological therapy is added to standard IBD care</div></div>
+    </div>
+
+    <p>The relationship is bidirectional: active disease causes anxiety and depression, and anxiety and depression worsen disease activity. This cycle can be difficult to interrupt without addressing both sides simultaneously.</p>
+
+    <h3>How Stress Physically Damages the Gut</h3>
+
+    <p>Psychological stress does not just make you "feel worse" — it produces measurable, documented changes in intestinal physiology:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Mechanism</th><th>What Happens</th><th>The Consequence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cortisol &amp; HPA axis activation</td><td>Sustained stress chronically elevates cortisol, which initially suppresses inflammation but causes immune dysregulation with prolonged exposure</td><td>Paradoxical increase in intestinal inflammation; impaired mucosal healing</td></tr>
+        <tr><td>Corticotropin-releasing factor (CRF)</td><td>Stress releases CRF directly in the gut, increasing intestinal permeability ("leaky gut")</td><td>Bacteria and antigens cross the gut barrier, triggering immune activation and potential flares</td></tr>
+        <tr><td>Sympathetic nervous system activation</td><td>Fight-or-flight diverts blood flow away from the gut, alters motility, and suppresses digestive secretions</td><td>Impaired digestion, altered transit, increased pain sensitivity</td></tr>
+        <tr><td>Mast cell activation</td><td>Stress activates mast cells in the intestinal mucosa, releasing histamine and pro-inflammatory cytokines</td><td>Localized intestinal inflammation; exacerbated symptoms</td></tr>
+        <tr><td>Microbiome disruption</td><td>Cortisol alters the composition of gut bacteria, reducing beneficial species and increasing pathobionts</td><td>Reduced mucosal protection; increased dysbiosis</td></tr>
+        <tr><td>Sleep disruption</td><td>Anxiety and pain disrupt sleep; poor sleep further elevates inflammatory markers (IL-6, TNF-α, CRP)</td><td>Impaired mucosal repair; increased next-day symptom severity</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <span class="icon">🧠</span>
+      <div><b>Stress is not a soft variable.</b> A 2020 study in <em>Gut</em> (the leading gastroenterology journal) found that perceived stress was an independent predictor of Crohn's disease relapse — comparable in effect size to medication non-adherence. Managing stress is not complementary care; it is core treatment.</div>
+    </div>
+
+    <h3>Specific Psychological Patterns That Worsen Crohn's</h3>
+
+    <p>Not all stress affects the gut equally. Research has identified specific psychological patterns that are disproportionately associated with worse IBD outcomes:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Health anxiety (hypochondriasis)</strong> — hypervigilance to bodily sensations amplifies pain perception through central sensitization. Every gut twinge becomes a potential emergency, perpetuating a stress-inflammation-stress cycle.</li>
+      <li><strong>Avoidance behavior</strong> — restricting diet, activities, and social contact beyond what is medically necessary leads to isolation, malnutrition, and depression, all of which worsen disease.</li>
+      <li><strong>Perfectionism and control loss</strong> — people who strongly value control and predictability experience heightened distress from the unpredictability of Crohn's, leading to chronic psychological activation.</li>
+      <li><strong>Post-traumatic stress</strong> — significant hospitalizations, surgeries, and traumatic medical procedures can generate PTSD-like responses that chronically elevate the stress response.</li>
+      <li><strong>Social isolation</strong> — the shame around symptoms leads many people to withdraw from relationships and support networks, removing a key buffer against stress.</li>
+    </ul>
+
+    <h3>Evidence-Based Psychological Interventions for IBD</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Intervention</th><th>Evidence Level</th><th>Effect on Crohn's</th><th>How to Access</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cognitive Behavioral Therapy (CBT)</td><td>Strong — multiple RCTs</td><td>Reduces anxiety, depression, and fatigue in IBD; some studies show reduced flare frequency</td><td>IBD-specialist therapist; online CBT programs (e.g., Cobalt IBD)</td></tr>
+        <tr><td>Mindfulness-Based Stress Reduction (MBSR)</td><td>Moderate — growing evidence</td><td>Reduces perceived stress, improves quality of life, lowers inflammatory markers in some studies</td><td>8-week MBSR programs; apps (Headspace, Calm, Insight Timer)</td></tr>
+        <tr><td>Gut-directed hypnotherapy</td><td>Strong for IBS; emerging for IBD</td><td>Reduces visceral hypersensitivity and pain; shown to reduce relapse rates in one Crohn's trial</td><td>Registered hypnotherapist with GI experience; audio programs</td></tr>
+        <tr><td>Acceptance and Commitment Therapy (ACT)</td><td>Emerging</td><td>Helps patients accept disease uncertainty rather than fighting it — reduces the cognitive burden of chronic illness</td><td>ACT therapist; self-help books (e.g., <em>The Happiness Trap</em>)</td></tr>
+        <tr><td>Social support / peer groups</td><td>Strong observational evidence</td><td>Strong social support networks are one of the most robust predictors of positive IBD outcomes</td><td>Crohn's &amp; Colitis Foundation; local support groups; online communities</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Impact of Physical Inactivity on Crohn's</h3>
+
+    <p>A sedentary lifestyle is independently associated with worse IBD outcomes. The mechanisms are multiple and compounding:</p>
+
+    <div class="phase-grid">
+      <div class="phase-card flare">
+        <h4>What inactivity does to Crohn's</h4>
+        <ul>
+          <li>Increases systemic inflammation (higher CRP, IL-6)</li>
+          <li>Reduces microbiome diversity and richness</li>
+          <li>Worsens depression and anxiety — amplifying the stress-gut cycle</li>
+          <li>Accelerates muscle wasting (sarcopenia) — already a significant risk</li>
+          <li>Impairs sleep quality — the gut heals during deep sleep</li>
+          <li>Reduces bone density — already compromised by steroids and malabsorption</li>
+          <li>Lowers self-efficacy and sense of control over the disease</li>
+        </ul>
+      </div>
+      <div class="phase-card remission">
+        <h4>What regular exercise does</h4>
+        <ul>
+          <li>Reduces systemic inflammatory markers</li>
+          <li>Dramatically improves microbiome diversity (shown in multiple studies)</li>
+          <li>Matches antidepressants for mild-moderate depression in RCTs</li>
+          <li>Preserves and builds muscle mass — critical for metabolic and immune health</li>
+          <li>Strengthens bones despite steroid use</li>
+          <li>Lowers cortisol with regular moderate training</li>
+          <li>Improves sleep quality and gut motility</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <span class="icon">🔬</span>
+      <div><b>The microbiome-exercise link:</b> A landmark 2019 study in <em>Medicine &amp; Science in Sports &amp; Exercise</em> found that 6 weeks of aerobic exercise significantly increased levels of Faecalibacterium prausnitzii — the anti-inflammatory bacteria most depleted in Crohn's disease. Exercise changes what grows in your gut. These changes were lost when exercise was stopped, underscoring the need for consistency.</div>
+    </div>
+
+    <h3>Exercise Prescription for Crohn's</h3>
+
+    <p>The fear of exercise triggering symptoms keeps many Crohn's patients sedentary. This fear is largely unfounded in remission and is one of the most damaging beliefs a person with IBD can hold. Moderate exercise does not trigger flares — chronic inflammation, stress, and inactivity do.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Type</th><th>Frequency</th><th>Benefits for Crohn's</th><th>Starting Point</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Resistance training</td><td>3–4x/week</td><td>Builds muscle, improves bone density, boosts testosterone and growth hormone, reduces inflammatory cytokines</td><td>2 sets of 8 major exercises; increase gradually over 8–12 weeks</td></tr>
+        <tr><td>Brisk walking</td><td>Daily, 20–45 min</td><td>Lowers cortisol, improves gut motility, enhances mood, accessible during mild flares</td><td>Start with 15 minutes; the most underrated IBD intervention</td></tr>
+        <tr><td>Yoga / mobility work</td><td>3–5x/week</td><td>Activates parasympathetic nervous system (rest-and-digest); reduces visceral hypersensitivity; directly counters the stress response</td><td>10–15 minute morning practice; YouTube channels like Yoga with Adriene</td></tr>
+        <tr><td>Swimming / cycling</td><td>2–3x/week</td><td>Low-impact aerobic capacity; less intestinal jostling than running; often well-tolerated during mild symptoms</td><td>20–30 minute sessions at comfortable pace</td></tr>
+        <tr><td>Breathwork</td><td>Daily, 5–10 min</td><td>Directly activates the vagus nerve and parasympathetic system; reduces stress hormones within minutes</td><td>Box breathing (4 in, 4 hold, 4 out, 4 hold); physiological sigh (double inhale, long exhale)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>The Vagus Nerve — Your Gut-Brain Highway</h3>
+
+    <p>The vagus nerve is the primary communication channel between the brain and the gut. It carries signals in both directions — which is why anxiety causes gut symptoms, and why gut inflammation causes brain fog, mood changes, and fatigue. Stimulating the vagus nerve activates the parasympathetic ("rest and digest") state, directly countering the effects of the chronic stress response on the gut.</p>
+
+    <p>Evidence-based vagus nerve activation strategies:</p>
+
+    <ul style="padding-left: 20px; margin-bottom: 1rem; line-height: 1.9; font-family: -apple-system, sans-serif; font-size: 0.9rem;">
+      <li><strong>Slow diaphragmatic breathing</strong> — 5–6 breaths per minute; most studied vagal stimulation technique</li>
+      <li><strong>Cold exposure</strong> — cold shower or face immersion in cold water briefly activates the diving reflex and vagal tone</li>
+      <li><strong>Humming, singing, or chanting</strong> — the vagus nerve innervates the vocal cords; vibration activates it directly</li>
+      <li><strong>Yoga and meditation</strong> — both increase heart rate variability, the primary measure of vagal tone</li>
+      <li><strong>Social connection and laughter</strong> — genuinely some of the most powerful vagal activators known</li>
+    </ul>
+
+    <div class="callout tip">
+      <span class="icon">🌬️</span>
+      <div><b>The physiological sigh:</b> Take a normal inhale through the nose, then add a second quick inhale on top to fully inflate the lungs, then release in one long slow exhale. This specific breathing pattern has been shown in Stanford research (2023) to be the most effective single breath pattern for rapidly reducing acute stress and activating the parasympathetic nervous system.</div>
+    </div>
+
+    <h3>Building a Daily Mind-Body Practice</h3>
+
+    <p>You do not need an hour a day. Research shows that even 10–15 minutes of consistent practice produces measurable changes in stress hormones, inflammatory markers, and gut symptoms over 6–8 weeks. The key is daily consistency over any single dramatic intervention.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Time</th><th>Practice</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Morning</td><td>5 minutes breathwork + 10 minutes gentle movement or yoga</td><td>15 min</td></tr>
+        <tr><td>Pre-meal</td><td>3 slow breaths before eating to activate parasympathetic digestion mode</td><td>1 min</td></tr>
+        <tr><td>Midday</td><td>10–20 minute walk outside (sunlight + movement + nature)</td><td>10–20 min</td></tr>
+        <tr><td>Evening</td><td>Journaling (3 things you're grateful for) + reading; screen-off 30 min before bed</td><td>15 min</td></tr>
+        <tr><td>Weekly</td><td>One session of dedicated therapy, support group, or social connection</td><td>60 min</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 12 ═══ -->
+  <div class="chapter" id="ch12">
+    <p class="chapter-label">Chapter 12</p>
+    <h2 class="chapter-title">People Who Healed: Studies &amp; Real Cases</h2>
+
+    <div class="callout info">
+      <span class="icon">📌</span>
+      <div><b>On the word "healed":</b> Crohn's disease is currently considered incurable in conventional medicine — meaning there is no treatment that permanently eliminates the underlying genetic and immune predisposition. "Healed" in this chapter refers to individuals who achieved complete, sustained clinical and endoscopic remission — no active inflammation on scope, normal biomarkers, off all medication — sometimes for years or decades. Whether this constitutes a "cure" is semantically complex, but the outcomes are real and documented.</div>
+    </div>
+
+    <p>The cases and studies below represent some of the most compelling evidence that dietary and lifestyle interventions can produce outcomes that go beyond symptom management — achieving deep, durable remission that in many cases has lasted years without pharmaceutical intervention.</p>
+
+    <h3>Clinical Studies Showing Dietary Remission</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Study</th><th>Intervention</th><th>Key Finding</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>PRODUCE Trial</strong><br><em>Gastroenterology, 2021</em></td>
+          <td>Specific Carbohydrate Diet (SCD) vs. Mediterranean Diet in pediatric Crohn's</td>
+          <td>Both diets achieved clinical remission in ~47% of patients at 12 weeks — comparable to steroid induction. This was the first RCT showing a dietary intervention could match pharmaceutical remission induction in Crohn's.</td>
+        </tr>
+        <tr>
+          <td><strong>DINE-CD Trial</strong><br><em>Gastroenterology, 2022</em></td>
+          <td>SCD vs. Mediterranean diet in adult Crohn's patients on stable therapy</td>
+          <td>Both dietary patterns produced significant and comparable improvements in patient-reported symptoms and quality of life. Neither was superior, but both outperformed standard dietary advice. Confirmed dietary pattern matters meaningfully even in adults.</td>
+        </tr>
+        <tr>
+          <td><strong>CDED + PEN Trial</strong><br><em>Lancet Gastroenterology &amp; Hepatology, 2019</em></td>
+          <td>Crohn's Disease Exclusion Diet (CDED) + partial enteral nutrition vs. exclusive enteral nutrition</td>
+          <td>At 12 weeks, CDED + PEN achieved sustained remission in 75% of patients — significantly higher than EEN alone at 12 weeks (59%). At 24 weeks, CDED + PEN maintained remission in 45.5% vs. 22.2% for EEN alone. Landmark evidence for a structured dietary protocol.</td>
+        </tr>
+        <tr>
+          <td><strong>EEN Meta-Analysis</strong><br><em>Alimentary Pharmacology &amp; Therapeutics, 2018</em></td>
+          <td>Exclusive Enteral Nutrition vs. corticosteroids in pediatric Crohn's</td>
+          <td>EEN achieved equivalent remission rates to corticosteroids (approximately 80%) while additionally producing mucosal healing — something steroids do not. EEN is now first-line over steroids in pediatric Crohn's in the UK and many European countries.</td>
+        </tr>
+        <tr>
+          <td><strong>Exercise &amp; IBD Remission Study</strong><br><em>Scandinavian Journal of Gastroenterology, 2017</em></td>
+          <td>Structured moderate-intensity exercise (walking) in Crohn's remission</td>
+          <td>Patients who exercised regularly had significantly lower relapse rates (27%) compared to sedentary controls (54%) over 12 months. Exercise halved the relapse rate — with no adverse effects. Zero patients experienced a flare triggered by exercise.</td></tr>
+        <tr>
+          <td><strong>Psychological Therapy &amp; IBD Outcomes</strong><br><em>Gut, 2020 (meta-analysis)</em></td>
+          <td>Psychological therapies (CBT, mindfulness, relaxation) combined with standard IBD care</td>
+          <td>Patients receiving psychological therapy alongside medical care had significantly lower relapse rates, lower CRP, lower fecal calprotectin, and improved quality of life compared to medical care alone. 14 RCTs included, N=1,382 patients.</td>
+        </tr>
+        <tr>
+          <td><strong>Low-FODMAP &amp; Crohn's Symptom Control</strong><br><em>Journal of Crohn's and Colitis, 2019</em></td>
+          <td>Low-FODMAP diet in Crohn's remission with functional symptoms</td>
+          <td>52% of patients reported significant symptom improvement; 26% achieved complete symptom resolution within 6 weeks. Particularly effective for patients in clinical remission but with ongoing IBS-like functional symptoms — a common and undertreated presentation.</td>
+        </tr>
+        <tr>
+          <td><strong>Fecal Microbiota Transplant (FMT) Case Series</strong><br><em>World Journal of Gastroenterology, 2020</em></td>
+          <td>FMT from healthy donors in refractory Crohn's</td>
+          <td>31% of patients achieved clinical remission; 50% showed clinical response. FMT is the most direct microbiome intervention and represents a frontier area of Crohn's research. Several patients in case reports have achieved durable remission lasting 2+ years from a single procedure.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Documented Individual Cases of Sustained Remission</h3>
+
+    <div class="callout warn">
+      <span class="icon">📋</span>
+      <div>The cases below are drawn from published case reports, documented public accounts, and peer-reviewed literature. They are presented as illustrative examples, not as guarantees of outcomes. Individual Crohn's disease varies enormously in location, behavior, and severity.</div>
+    </div>
+
+    <h3>Case 1 — Mikhaila Peterson: Carnivore Diet &amp; Complete Symptom Remission</h3>
+    <p><strong>Background:</strong> Diagnosed with juvenile idiopathic arthritis at age 7, depression at 12, and Crohn's disease in her teens. By her early 20s she had undergone hip and ankle joint replacements and was on multiple immunosuppressive medications including Humira (adalimumab).</p>
+    <p><strong>Intervention:</strong> Progressive dietary elimination over 2015–2017, culminating in a strict carnivore diet (beef, salt, water) — which she has called the "Lion Diet." She eliminated all medications over approximately 18 months under medical supervision.</p>
+    <p><strong>Outcome:</strong> Reports complete resolution of Crohn's symptoms, arthritis symptoms, and depression. No medication since approximately 2018. Outcome has been documented through medical records and public interviews, though not published as a formal case report. Her case remains one of the most detailed accounts of dietary-driven IBD remission available publicly.</p>
+
+    <h3>Case 2 — Jordan Peterson: Carnivore Diet &amp; Autoimmune Remission</h3>
+    <p><strong>Background:</strong> Dr. Jordan Peterson, a clinical psychologist, reported severe autoimmune and inflammatory symptoms including fatigue, brain fog, and psoriasis. He began following a carnivore diet following his daughter's experience.</p>
+    <p><strong>Intervention:</strong> Strict carnivore diet (beef, salt, water), adopted in 2018.</p>
+    <p><strong>Outcome:</strong> Reports resolution of autoimmune symptoms, significant weight loss, and improved mental clarity. His case, while not Crohn's-specific, contributed significantly to public and medical interest in carnivore diet for inflammatory conditions.</p>
+
+    <h3>Case 3 — Published SCD Case Report: Pediatric Crohn's Off All Medication</h3>
+    <p><strong>Background:</strong> A 2016 case report in the <em>Journal of Pediatric Gastroenterology and Nutrition</em> described a 13-year-old with moderate-to-severe Crohn's disease who declined conventional therapy due to family preference for dietary management.</p>
+    <p><strong>Intervention:</strong> Strict Specific Carbohydrate Diet, implemented with intensive dietitian support over 12 months.</p>
+    <p><strong>Outcome:</strong> Achieved and maintained clinical remission with normal fecal calprotectin and CRP at 12 months. Follow-up endoscopy showed mucosal healing. Remained off all medication. This is one of the few formally published pediatric cases of SCD-induced mucosal healing in Crohn's.</p>
+
+    <h3>Case 4 — Stress Reduction &amp; Spontaneous Remission: Documented in IBD Cohort Studies</h3>
+    <p><strong>Background:</strong> Multiple cohort studies following Crohn's patients over 5–10 years have documented a subgroup (approximately 10–15% of patients) who achieve prolonged spontaneous remission without medication changes, often correlating with major positive life changes: new relationships, career transitions, relocation, or dedicated lifestyle overhaul.</p>
+    <p><strong>What they have in common:</strong> In published analyses, the patients who achieved spontaneous durable remission most consistently shared: smoking cessation, regular exercise, significant stress reduction, dietary improvement, and strong social support. No single factor was sufficient alone — the combination of multiple lifestyle improvements appeared synergistic.</p>
+
+    <h3>Case 5 — EEN-Induced Mucosal Healing Followed by Long-Term Dietary Maintenance</h3>
+    <p><strong>Background:</strong> A published case series from a UK pediatric IBD center (2018) followed 12 children who achieved EEN-induced remission and then transitioned to the CDED (Crohn's Disease Exclusion Diet) as maintenance.</p>
+    <p><strong>Outcome:</strong> At 24 months follow-up, 7 of 12 (58%) remained in clinical and biochemical remission without medication. Three required re-induction with EEN for relapse but returned to remission. Two required escalation to biologics. This is one of the longest follow-up datasets for dietary maintenance of Crohn's remission available.</p>
+
+    <h3>What Successful Cases Have in Common</h3>
+
+    <p>Across the studies and cases reviewed, several themes emerge consistently among patients who achieve and maintain long-term remission through dietary and lifestyle means:</p>
+
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">01</div><div class="desc">Complete elimination of ultra-processed foods, emulsifiers, and refined sugar</div></div>
+      <div class="stat-box"><div class="num">02</div><div class="desc">High protein intake from easily digestible, whole-food animal sources</div></div>
+      <div class="stat-box"><div class="num">03</div><div class="desc">Active, daily stress management — not occasional, not when convenient</div></div>
+      <div class="stat-box"><div class="num">04</div><div class="desc">Consistent physical movement — daily walking plus structured resistance training</div></div>
+      <div class="stat-box"><div class="num">05</div><div class="desc">Prioritized sleep — 7–9 hours, non-negotiable</div></div>
+      <div class="stat-box"><div class="num">06</div><div class="desc">Close monitoring with a gastroenterologist using objective markers, not just symptoms</div></div>
+    </div>
+
+    <div class="callout tip">
+      <span class="icon">🌟</span>
+      <div><b>The honest takeaway:</b> The evidence does not support the idea that any single intervention — carnivore diet, SCD, meditation, exercise — heals Crohn's on its own. What the evidence does strongly support is that a comprehensive, committed lifestyle overhaul — addressing diet, stress, movement, sleep, and social connection simultaneously — produces outcomes that pharmaceutical treatment alone cannot replicate. The cases of sustained, medication-free remission are real. They are not the majority. But they are not miracles either. They are the result of extraordinary consistency applied across every lever available.</div>
+    </div>
+
+    <h3>A Note on Hope vs. Certainty</h3>
+
+    <p>Reading these cases can feel both inspiring and dangerous — inspiring because the outcomes are real, dangerous because the expectation can set people up for self-blame when their disease doesn't respond the same way. Crohn's is heterogeneous. Location, genetics, microbiome composition, immune phenotype, and disease behavior all influence how responsive it is to non-pharmacological management.</p>
+
+    <p>The right frame is this: every lifestyle intervention you implement is a force multiplier. Some people using these multipliers achieve complete remission. Others achieve dramatically better quality of life with the same medications that were previously failing them. Almost no one who implements these changes consistently ends up worse. The floor is high. The ceiling is unknown. That makes the effort worth it for everyone.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ═══ CHAPTER 13 ═══ -->
+  <div class="chapter" id="ch13">
+    <p class="chapter-label">Chapter 13</p>
+    <h2 class="chapter-title">Your Weekly Plans — In Remission &amp; During a Flare</h2>
+    <p>Select your current phase to see the complete dietary and workout plan tailored to it. Both plans are designed to preserve as much muscle as possible while keeping your gut protected.</p>
+
+    <!-- TAB BAR -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('remission', this)">✅ In Remission</button>
+      <button class="tab-btn"        onclick="switchTab('flare',     this)">🔥 During a Flare</button>
+      <button class="tab-btn"        onclick="switchTab('vegan',     this)">🌱 Vegan Plan</button>
+    </div>
+
+    <!-- ══ REMISSION PANE ══ -->
+    <div class="tab-pane active" id="tab-remission">
+
+      <div class="callout tip">
+        <span class="icon">💡</span>
+        <div><b>Remission goal:</b> Build muscle, maximize nutrient absorption, expand food variety, and consolidate gut health — all while training progressively.</div>
+      </div>
+
+      <h3>Nutrition Overview</h3>
+      <table class="data-table">
+        <thead><tr><th>Target</th><th>Amount</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Calories</td><td>TDEE + 200–300 kcal</td><td>Modest surplus — prevents excess gut stress</td></tr>
+          <tr><td>Protein</td><td>1.8–2.2 g/kg body weight</td><td>Spread across 5–6 meals; prioritize complete sources</td></tr>
+          <tr><td>Carbohydrates</td><td>3–5 g/kg body weight</td><td>White rice, potato, oats (well-cooked), banana, fruit</td></tr>
+          <tr><td>Fat</td><td>1–1.2 g/kg body weight</td><td>Olive oil, avocado, fatty fish, eggs</td></tr>
+          <tr><td>Meals per day</td><td>5–6 smaller meals</td><td>Reduces single-meal digestive load</td></tr>
+          <tr><td>Hydration</td><td>2.5–3 L water/day</td><td>More on training days</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7-Day Meal Plan (Remission)</h3>
+      <div class="meal-plan">
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Monday — Upper Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>3 scrambled eggs + 2 slices sourdough + ½ avocado + 1 banana</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (30g) + cooked oatmeal with blueberries &amp; honey</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Baked salmon (150g) + 1½ cups white rice + steamed zucchini (peeled) + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>Rice cakes (3) + almond butter + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake (30g) + 1 cup white rice</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Poached chicken breast (180g) + mashed peeled potato + steamed carrots + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Cottage cheese (½ cup) + ripe melon or pear</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Tuesday — Active Recovery Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>2-egg omelette + mild cheese + sourdough toast + apple juice</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Greek yogurt (200g plain) + honey + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Turkey mince (130g) + white pasta + strained tomato sauce + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake + handful ripe grapes</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Baked cod (180g) + white rice + cooked spinach + lemon + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Warm lactose-free milk + 1 boiled egg</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Wednesday — Lower Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Smoothie: whey isolate (30g) + banana + ripe mango + Greek yogurt + lactose-free milk</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Rice cakes (3) + smooth peanut butter</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Ground chicken (150g) + baked sweet potato (peeled) + cooked green beans + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>White bagel + jam + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake (30g) + white rice (1 cup)</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Salmon fillet (160g) + potato mash + steamed courgette + lemon</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Casein protein shake or Greek yogurt</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Thursday — Rest / Yoga Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>2 poached eggs + sourdough + half avocado + orange juice</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake + ripe banana</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Tuna (150g tinned in water) + white rice + cucumber (peeled, no seeds) + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Greek yogurt + honey + ripe peach</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Lamb mince (150g) + white rice + cooked carrot &amp; zucchini + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Cottage cheese + melon</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Friday — Full Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>3 scrambled eggs + white toast + banana + 200g Greek yogurt</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake + oatmeal with blueberries</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Chicken breast (180g) + white pasta + cooked peeled tomatoes + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>Banana + rice cakes + peanut butter</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Whey isolate shake + 1 cup white rice</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Baked white fish (200g) + sweet potato mash + steamed courgette</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Warm lactose-free milk + casein or cottage cheese</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Saturday — Active Rest / Walk Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Eggs (2) + smoked salmon (60g) + sourdough + avocado</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Banana + smooth almond butter</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Lean beef burger (150g, no bun or white bun) + baked potato (peeled) + cooked green beans</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake + ripe mango</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Roast chicken breast + white rice + steamed carrots + olive oil &amp; lemon</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Greek yogurt + honey</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Sunday — Rest Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>3-egg omelette + mild cheese + fruit juice + sourdough</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Smoothie: banana + whey isolate + blueberries + lactose-free milk</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Salmon (160g) + potato + cooked green vegetables + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Cottage cheese + ripe pear</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Chicken or turkey (180g) + white rice + steamed vegetables + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Casein shake or Greek yogurt — prep meals for the week</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Weekly Workout Plan (Remission)</h3>
+      <div class="week-grid">
+        <div class="day-card">
+          <div class="day-name">Monday</div>
+          <div class="day-body">
+            <span class="day-tag">Upper Body</span><br>
+            Bench press 4×8<br>
+            Seated row 4×10<br>
+            OHP 3×10<br>
+            Lat pulldown 3×10<br>
+            Bicep curl 3×12<br>
+            Tricep pushdown 3×12
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Tuesday</div>
+          <div class="day-body">
+            <span class="day-tag">Active Recovery</span><br>
+            30-min brisk walk<br>
+            15-min yoga / stretching<br>
+            5-min breathwork<br>
+            <em>No lifting</em>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Wednesday</div>
+          <div class="day-body">
+            <span class="day-tag">Lower Body</span><br>
+            Squat 4×8<br>
+            Romanian deadlift 4×10<br>
+            Leg press 3×12<br>
+            Leg curl 3×12<br>
+            Calf raises 4×15<br>
+            Hip thrust 3×12
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Thursday</div>
+          <div class="day-body">
+            <span class="day-tag">Rest + Yoga</span><br>
+            20-min yoga<br>
+            10-min meditation<br>
+            Gentle walk if desired<br>
+            <em>Full rest day</em>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Friday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Body</span><br>
+            Deadlift 4×6<br>
+            Pull-ups 3×8<br>
+            Dumbbell press 3×10<br>
+            Cable row 3×12<br>
+            Lunges 3×10<br>
+            Core work 3×15
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Saturday</div>
+          <div class="day-body">
+            <span class="day-tag">Active Rest</span><br>
+            45-min walk<br>
+            Swimming or cycling (optional)<br>
+            Foam rolling<br>
+            <em>Low intensity only</em>
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Sunday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Rest</span><br>
+            No training<br>
+            Meal prep<br>
+            Sleep 8+ hrs<br>
+            <em>Recovery priority</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">📈</span>
+        <div><b>Progressive overload:</b> Aim to add a small amount of weight or one extra rep each week on your main lifts. This consistent stimulus — not the weight itself — is what drives muscle growth. Track your lifts in a notebook or app every session.</div>
+      </div>
+
+      <h3>Daily Remission Schedule Template</h3>
+      <table class="data-table">
+        <thead><tr><th>Time</th><th>Activity</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>7:00 am</td><td>Wake + 5-min breathwork + glass of water</td><td>Activates parasympathetic system; rehydrates after sleep</td></tr>
+          <tr><td>7:30 am</td><td>Breakfast (protein + carbs)</td><td>Starts muscle protein synthesis; fuels morning</td></tr>
+          <tr><td>10:00 am</td><td>Mid-morning snack (protein + carbs)</td><td>Maintains MPS; prevents energy dip</td></tr>
+          <tr><td>12:30 pm</td><td>Lunch (largest meal)</td><td>Peak digestive capacity midday</td></tr>
+          <tr><td>3:00 pm</td><td>Pre-workout snack (carb-forward)</td><td>Fuels training session</td></tr>
+          <tr><td>4:30 pm</td><td>Training session (45–75 min)</td><td>Muscle stimulus window</td></tr>
+          <tr><td>6:00 pm</td><td>Post-workout shake + rice</td><td>Rapid protein + carb replenishment</td></tr>
+          <tr><td>7:30 pm</td><td>Dinner (protein + veg + fat)</td><td>Evening recovery nutrition</td></tr>
+          <tr><td>9:30 pm</td><td>Evening snack (slow protein — casein/cottage cheese)</td><td>Overnight muscle protein synthesis</td></tr>
+          <tr><td>10:00 pm</td><td>Screens off; wind-down routine</td><td>Sleep quality is non-negotiable for gut and muscle healing</td></tr>
+          <tr><td>10:30 pm</td><td>Sleep</td><td>8 hours target — the most anabolic and gut-healing activity of the day</td></tr>
+        </tbody>
+      </table>
+
+    </div><!-- end tab-remission -->
+
+    <!-- ══ FLARE PANE ══ -->
+    <div class="tab-pane" id="tab-flare">
+
+      <div class="callout danger">
+        <span class="icon">🚨</span>
+        <div><b>Flare priority:</b> During a flare, the goal is NOT to build muscle. The goal is to protect gut lining, maintain body weight, preserve as much muscle as possible, and support the conditions for remission. Every decision — food, exercise, stress — should serve gut healing first.</div>
+      </div>
+
+      <h3>Nutrition Overview (Flare)</h3>
+      <table class="data-table">
+        <thead><tr><th>Target</th><th>Amount</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Calories</td><td>Maintenance (TDEE ± 0)</td><td>Avoid deficit — body needs energy to heal; avoid surplus that stresses digestion</td></tr>
+          <tr><td>Protein</td><td>1.5–1.8 g/kg body weight</td><td>Prioritize liquid and soft forms; isolate shakes, eggs, bone broth protein</td></tr>
+          <tr><td>Carbohydrates</td><td>2–3 g/kg body weight</td><td>White rice, plain crackers, banana, applesauce, strained juice — no fiber</td></tr>
+          <tr><td>Fat</td><td>Minimal added fat</td><td>Small amounts of olive oil or butter only; high fat slows gastric emptying</td></tr>
+          <tr><td>Fiber</td><td>As low as possible</td><td>Low-residue diet — no raw vegetables, no whole grains, no seeds</td></tr>
+          <tr><td>Meals per day</td><td>6–8 very small meals</td><td>Tiny portions every 2–3 hours reduces gut load at any moment</td></tr>
+          <tr><td>Hydration</td><td>2.5–3.5 L with electrolytes</td><td>Oral rehydration salts (ORS) or electrolyte drinks alongside water</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7-Day Meal Plan (Flare)</h3>
+      <div class="meal-plan">
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Day 1 — Severe Symptoms (Gut Rest Protocol)</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">7:00 am</span><span>Oral rehydration solution (ORS) — 250ml + plain water</span></div>
+            <div class="meal-row"><span class="meal-label">8:00 am</span><span>White rice congee (plain, no seasoning) — ½ cup cooked</span></div>
+            <div class="meal-row"><span class="meal-label">10:00 am</span><span>Whey isolate shake (20g) in water — sip slowly</span></div>
+            <div class="meal-row"><span class="meal-label">12:00 pm</span><span>Bone broth (1 cup) + 1 soft-boiled egg</span></div>
+            <div class="meal-row"><span class="meal-label">2:00 pm</span><span>Plain applesauce (unsweetened) + plain rice crackers (4)</span></div>
+            <div class="meal-row"><span class="meal-label">4:00 pm</span><span>Whey isolate shake (20g) in water</span></div>
+            <div class="meal-row"><span class="meal-label">6:00 pm</span><span>Steamed white fish (80g) + plain mashed peeled potato (small portion)</span></div>
+            <div class="meal-row"><span class="meal-label">8:00 pm</span><span>Bone broth (1 cup) + electrolyte drink</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Days 2–3 — Moderate Symptoms</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>White rice porridge + 1 soft-boiled egg + small amount of grated mild cheese</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (25g) in water + ripe banana (mashed if needed)</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Chicken broth soup + white rice noodles (well-cooked) + shredded poached chicken (80g)</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Plain crackers + applesauce + electrolyte drink</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Steamed fish (100g) + plain mashed potato (peeled) + small knob of butter</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Bone broth (1 cup) + plain yogurt if tolerated (small amount)</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Days 4–5 — Improving Symptoms</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>2 scrambled eggs (soft) + 1 slice white toast + diluted apple juice</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (25g) + ripe banana</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Poached chicken (120g) + white rice (½ cup) + steamed peeled carrot (small)</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Plain yogurt (100g) + honey</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Baked white fish (130g) + mashed potato + a little olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Bone broth + electrolyte drink</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Days 6–7 — Transitioning Out of Flare</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>2 eggs + white toast + 1 banana + small Greek yogurt</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Whey isolate shake (28g) + ripe banana</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Chicken breast (130g) + white rice (¾ cup) + steamed courgette (peeled, small)</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Rice cakes (2) + smooth peanut butter (1 tbsp)</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Salmon (130g) + mashed potato + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Greek yogurt + honey — monitor tolerance carefully</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout warn">
+        <span class="icon">💧</span>
+        <div><b>Hydration is the top priority during a flare.</b> Diarrhea and reduced intake cause rapid electrolyte depletion. Target 2.5–3.5 litres per day, with at least 500ml as ORS or electrolyte solution. Signs of dehydration — dark urine, dizziness, dry mouth — should prompt immediate intervention.</div>
+      </div>
+
+      <h3>Foods: Hard Yes &amp; Hard No During a Flare</h3>
+      <div class="phase-grid">
+        <div class="phase-card remission">
+          <h4>✅ Flare-Safe Foods</h4>
+          <ul>
+            <li>White rice (well-cooked)</li>
+            <li>Plain mashed potato (peeled)</li>
+            <li>Poached / steamed white fish</li>
+            <li>Soft-boiled or scrambled eggs</li>
+            <li>Bone broth (plain)</li>
+            <li>Whey isolate in water</li>
+            <li>Ripe banana (mashed)</li>
+            <li>Applesauce (unsweetened)</li>
+            <li>Plain white crackers / toast</li>
+            <li>Small amounts of plain yogurt</li>
+            <li>Diluted fruit juice (apple, white grape)</li>
+            <li>Butter / ghee (very small amounts)</li>
+          </ul>
+        </div>
+        <div class="phase-card flare">
+          <h4>❌ Avoid Completely During Flare</h4>
+          <ul>
+            <li>All raw vegetables and salads</li>
+            <li>Whole grains and bran</li>
+            <li>Nuts, seeds, popcorn</li>
+            <li>Legumes (beans, lentils, chickpeas)</li>
+            <li>Spicy foods and strong seasonings</li>
+            <li>Alcohol (any amount)</li>
+            <li>Fried or greasy foods</li>
+            <li>High-lactose dairy (milk, ice cream)</li>
+            <li>Artificial sweeteners</li>
+            <li>High-fiber fruits (berries, kiwi, dried fruit)</li>
+            <li>Caffeine in large amounts</li>
+            <li>Ultra-processed foods with emulsifiers</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Movement Plan During a Flare</h3>
+      <p>Heavy training during a flare is counterproductive — it increases cortisol, raises systemic inflammation, and diverts resources away from gut healing. But complete immobility is also harmful. The goal is gentle, parasympathetic-activating movement that maintains circulation and mood without stressing the body.</p>
+
+      <div class="week-grid">
+        <div class="day-card light">
+          <div class="day-name">Monday</div>
+          <div class="day-body">
+            <span class="day-tag">Gentle Walk</span><br>
+            15–20 min slow walk<br>
+            Stop if symptomatic<br>
+            Hydrate before &amp; after
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Tuesday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Rest</span><br>
+            Rest completely<br>
+            10-min breathwork<br>
+            Heat pad on abdomen
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Wednesday</div>
+          <div class="day-body">
+            <span class="day-tag">Yoga</span><br>
+            15-min restorative yoga<br>
+            Child's pose, legs up wall<br>
+            No inversions or twists
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Thursday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Rest</span><br>
+            Rest &amp; sleep priority<br>
+            Guided meditation<br>
+            Journaling
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Friday</div>
+          <div class="day-body">
+            <span class="day-tag">Short Walk</span><br>
+            10–15 min if able<br>
+            Fresh air priority<br>
+            Sunlight for vitamin D
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Saturday</div>
+          <div class="day-body">
+            <span class="day-tag">Rest</span><br>
+            Gentle stretching<br>
+            Breathwork<br>
+            Social connection (low-effort)
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Sunday</div>
+          <div class="day-body">
+            <span class="day-tag">Assess</span><br>
+            Symptom check<br>
+            15-min walk if improving<br>
+            Plan next week's nutrition
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">🛌</span>
+        <div><b>Sleep is your most powerful intervention during a flare.</b> Deep sleep is when the gut lining repairs itself — growth hormone peaks, cortisol drops, and mucosal healing accelerates. Prioritize 8–10 hours in a dark, cool room. A short afternoon nap of 20–30 minutes is also beneficial and not a sign of weakness — it is medicine.</div>
+      </div>
+
+      <h3>Daily Flare Schedule Template</h3>
+      <table class="data-table">
+        <thead><tr><th>Time</th><th>Activity</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>7:30 am</td><td>Wake slowly + 500ml water with electrolytes</td><td>Rehydrate overnight losses; gentle cortisol transition</td></tr>
+          <tr><td>8:00 am</td><td>Small breakfast — rice porridge or soft eggs</td><td>Tiny meal minimises gut load; starts protein intake</td></tr>
+          <tr><td>9:00 am</td><td>5-min breathwork (box breathing or physiological sigh)</td><td>Lowers cortisol; activates parasympathetic healing mode</td></tr>
+          <tr><td>10:00 am</td><td>Protein shake + electrolyte drink</td><td>Maintains protein intake without solid food burden</td></tr>
+          <tr><td>12:00 pm</td><td>Small lunch — bone broth + soft protein</td><td>Gut healing nutrients; mucosal support</td></tr>
+          <tr><td>2:00 pm</td><td>Rest or very short gentle walk (10–15 min max)</td><td>Circulation without cortisol spike</td></tr>
+          <tr><td>3:00 pm</td><td>Small snack — crackers + applesauce or shake</td><td>Keeps energy stable without large meals</td></tr>
+          <tr><td>5:00 pm</td><td>15-min restorative yoga or guided meditation</td><td>Vagus nerve activation; reduces gut hypersensitivity</td></tr>
+          <tr><td>6:30 pm</td><td>Small dinner — soft protein + plain starch</td><td>Final substantial nutrition of the day</td></tr>
+          <tr><td>8:00 pm</td><td>Warm herbal tea (ginger or chamomile) + journaling</td><td>Anti-nausea; psychological processing reduces stress load</td></tr>
+          <tr><td>9:30 pm</td><td>Screens off; darken room</td><td>Melatonin onset; prepares deep healing sleep</td></tr>
+          <tr><td>10:00 pm</td><td>Sleep — target 8–10 hours</td><td>Primary gut repair window</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout info">
+        <span class="icon">📞</span>
+        <div><b>When to call your gastroenterologist:</b> If a flare involves blood in stool, fever above 38°C (100.4°F), severe abdominal pain, inability to keep fluids down, or significant weight loss over 1–2 weeks — contact your doctor. These signs may indicate a severe flare requiring medical intervention including steroids, biologics, or hospitalisation. Do not manage these alone with diet.</div>
+      </div>
+
+    </div><!-- end tab-flare -->
+
+    <!-- ══ VEGAN PANE ══ -->
+    <div class="tab-pane" id="tab-vegan">
+
+      <div class="callout warn">
+        <span class="icon">🌱</span>
+        <div><b>Vegan + Crohn's requires extra diligence.</b> Every nutrient gap that Crohn's already creates is compounded by eliminating all animal products. This plan is designed to close those gaps deliberately. Non-negotiable supplements are listed — skipping them is not optional on this approach.</div>
+      </div>
+
+      <h3>Non-Negotiable Supplements (Vegan + Crohn's)</h3>
+      <table class="data-table">
+        <thead><tr><th>Supplement</th><th>Dose</th><th>Why Critical</th><th>Form</th></tr></thead>
+        <tbody>
+          <tr><td>Vitamin B12</td><td>1000–2000 mcg/day</td><td>Zero dietary sources; severely elevated risk with ileal Crohn's</td><td>Sublingual methylcobalamin (bypasses gut absorption)</td></tr>
+          <tr><td>Vitamin D3</td><td>2000–4000 IU/day</td><td>Already deficient in most Crohn's patients; no sun-independent vegan food source</td><td>Algae-derived D3 (cholecalciferol); test levels every 6 months</td></tr>
+          <tr><td>Omega-3 (EPA/DHA)</td><td>2g/day</td><td>ALA from plants converts to EPA/DHA at only 5–10%; anti-inflammatory EPA/DHA is critical in IBD</td><td>Algae-based EPA+DHA (the original source — fish eat algae)</td></tr>
+          <tr><td>Zinc bisglycinate</td><td>15–25 mg/day</td><td>Plant zinc is poorly absorbed (phytate binding); Crohn's increases losses</td><td>Bisglycinate form — best tolerated, highest bioavailability</td></tr>
+          <tr><td>Iron</td><td>Test first — supplement if ferritin &lt;30</td><td>Non-heme iron from plants is 2–5× less absorbed; GI blood loss worsens deficit</td><td>Ferrous bisglycinate with vitamin C; test every 3 months</td></tr>
+          <tr><td>Calcium</td><td>500–1000 mg/day if dairy-free</td><td>Bone density risk — compounded by steroid use common in Crohn's</td><td>Calcium citrate (better absorbed than carbonate); split doses</td></tr>
+          <tr><td>Iodine</td><td>150 mcg/day</td><td>No dairy or seafood; often missed on vegan diets</td><td>Potassium iodide supplement or iodised salt</td></tr>
+          <tr><td>Creatine monohydrate</td><td>3–5 g/day</td><td>Found only in animal muscle; vegans have ~50% lower muscle creatine stores — critical for strength</td><td>Pure monohydrate powder in water; no loading phase needed</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Nutrition Overview (Vegan, Remission)</h3>
+      <table class="data-table">
+        <thead><tr><th>Target</th><th>Amount</th><th>Vegan Strategy</th></tr></thead>
+        <tbody>
+          <tr><td>Calories</td><td>TDEE + 200–250 kcal</td><td>Calorie-dense foods: nut butters, avocado, olive oil, tofu, rice</td></tr>
+          <tr><td>Protein</td><td>1.8–2.2 g/kg body weight</td><td>Pea+rice isolate protein powder is the foundation — whole food sources alone are insufficient during muscle building</td></tr>
+          <tr><td>Carbohydrates</td><td>3–5 g/kg body weight</td><td>White rice, banana, oats (well-cooked), sweet potato (peeled), rice cakes</td></tr>
+          <tr><td>Fat</td><td>1–1.2 g/kg body weight</td><td>Olive oil, avocado, smooth nut butters, coconut oil (small amounts)</td></tr>
+          <tr><td>Protein sources</td><td>Rotate daily</td><td>Pea/rice protein isolate · silken &amp; firm tofu · tempeh (test tolerance) · edamame · smooth nut butters</td></tr>
+          <tr><td>Meals per day</td><td>5–6</td><td>More frequent meals help hit protein targets without overwhelming gut capacity</td></tr>
+        </tbody>
+      </table>
+
+      <h3>7-Day Vegan Meal Plan (Remission + Muscle Building)</h3>
+      <div class="meal-plan">
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Monday — Upper Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Pea protein smoothie (30g) + banana + ripe mango + oat milk + 1 tbsp almond butter</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Well-cooked oatmeal + blueberries (cooked) + 1 tbsp smooth peanut butter + maple syrup</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Silken tofu (200g, pan-fried soft) + white rice (1½ cups) + steamed peeled zucchini + olive oil + soy sauce (small amount)</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>Rice cakes (3) + smooth almond butter + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Pea+rice protein shake (35g) + white rice (1 cup)</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Firm tofu (180g, baked) + white rice noodles + cooked peeled carrot + steamed bok choy + sesame oil + soy sauce</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Pea protein shake (20g) with oat milk + ripe banana</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Tuesday — Active Recovery</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Oat porridge (well-cooked) + pea protein (20g stirred in) + banana + maple syrup</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Avocado on white toast + squeeze lemon</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Pea+rice protein shake (30g) + white rice (1 cup) + steamed sweet potato (peeled) + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Rice cakes + smooth peanut butter + ripe banana</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Silken tofu scramble (200g with turmeric, olive oil) + white rice + cooked peeled courgette</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Oat milk warm drink + 1 tbsp almond butter</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Wednesday — Lower Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Large smoothie: pea protein (35g) + banana + ripe mango + oat milk + avocado (¼)</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>White rice (1 cup) + 2 tbsp smooth peanut butter + honey</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Baked firm tofu (200g) + sweet potato mash (peeled) + cooked green beans + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>White bagel + jam + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Pea+rice protein shake (35g) + white rice (1 cup) + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Silken tofu (200g) + white pasta + cooked peeled tomato sauce (strained) + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Pea protein pudding: shake + banana blended thick</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Thursday — Rest / Yoga</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Oat porridge + pea protein (20g) + cooked blueberries + maple syrup + almond butter</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Banana + 2 tbsp smooth almond butter</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Firm tofu (180g) + white rice (1 cup) + steamed peeled carrot + olive oil + soy sauce</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Pea protein shake (25g) + oat milk + ripe mango</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Tofu &amp; vegetable congee (white rice + silken tofu + cooked peeled veg + ginger + olive oil)</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Warm oat milk + 1 tbsp peanut butter</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Friday — Full Body Training Day</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Pea+rice protein shake (35g) + banana + oat milk + oat porridge with honey</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Avocado toast (white bread) + lemon + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Baked tofu (200g) + white rice (1½ cups) + cooked peeled sweet potato + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Pre-Workout</span><span>Banana + rice cakes + almond butter</span></div>
+            <div class="meal-row"><span class="meal-label">Post-Workout</span><span>Pea+rice shake (35g) + white rice (1 cup)</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Silken tofu (200g) + white noodles + steamed bok choy + sesame oil + ginger broth</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Pea protein shake (20g) + banana blended with oat milk</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Saturday — Active Rest / Walk</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Smoothie bowl: pea protein (30g) + frozen banana + mango + oat milk — topped with rice puffs</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>White rice cakes + smooth peanut butter + banana</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Firm tofu stir-fry (200g) + white rice + peeled courgette + carrot + olive oil + soy sauce</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Pea+rice protein shake + ripe banana</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Tofu (180g) + sweet potato mash + cooked peeled green beans + olive oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Warm oat milk with turmeric + honey (golden oat milk)</span></div>
+          </div>
+        </div>
+
+        <div class="meal-plan-day">
+          <div class="meal-plan-day-header">Sunday — Full Rest + Meal Prep</div>
+          <div class="meal-plan-meals">
+            <div class="meal-row"><span class="meal-label">Breakfast</span><span>Oat porridge + pea protein (25g) + banana + almond butter + maple syrup</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Rice cakes + avocado + lemon</span></div>
+            <div class="meal-row"><span class="meal-label">Lunch</span><span>Silken tofu (200g) + white rice + cooked peeled carrot &amp; zucchini + olive oil + ginger</span></div>
+            <div class="meal-row"><span class="meal-label">Snack</span><span>Pea protein shake (25g) + oat milk + mango</span></div>
+            <div class="meal-row"><span class="meal-label">Dinner</span><span>Baked tofu (200g) + white noodles + cooked peeled vegetables + sesame oil</span></div>
+            <div class="meal-row"><span class="meal-label">Evening</span><span>Pea protein pudding + banana — prep shakes and rice for the week</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <h3>Vegan Foods: Best Protein Sources for Crohn's</h3>
+      <div class="food-grid">
+        <div class="food-item"><span class="emoji">🥛</span><span class="name">Pea Protein Isolate</span><div class="note">35–40g protein per 100g; no fiber; gut-gentle</div></div>
+        <div class="food-item"><span class="emoji">🌾</span><span class="name">Rice Protein Isolate</span><div class="note">Combine with pea for complete amino acid profile</div></div>
+        <div class="food-item"><span class="emoji">🧊</span><span class="name">Silken Tofu</span><div class="note">Soft, easy to digest; scramble or blend into shakes</div></div>
+        <div class="food-item"><span class="emoji">🟫</span><span class="name">Firm Tofu (baked)</span><div class="note">Higher protein; test tolerance; bake until firm</div></div>
+        <div class="food-item"><span class="emoji">🥜</span><span class="name">Smooth Nut Butters</span><div class="note">Almond, peanut — smooth only; no whole nuts</div></div>
+        <div class="food-item"><span class="emoji">🥑</span><span class="name">Avocado</span><div class="note">Healthy fat + calories; generally well tolerated</div></div>
+        <div class="food-item"><span class="emoji">🌾</span><span class="name">Oats (well-cooked)</span><div class="note">Soluble fiber; test tolerance carefully</div></div>
+        <div class="food-item"><span class="emoji">🍚</span><span class="name">White Rice</span><div class="note">Primary carbohydrate base; low residue</div></div>
+        <div class="food-item"><span class="emoji">🍌</span><span class="name">Ripe Banana</span><div class="note">Fast carbs; potassium; excellent pre/post workout</div></div>
+        <div class="food-item"><span class="emoji">🫒</span><span class="name">Extra-Virgin Olive Oil</span><div class="note">Anti-inflammatory; calorie-dense; gut-protective</div></div>
+        <div class="food-item"><span class="emoji">🍠</span><span class="name">Sweet Potato (peeled)</span><div class="note">Nutrient-dense carbs; cook well and peel always</div></div>
+        <div class="food-item"><span class="emoji">🍵</span><span class="name">Oat Milk (fortified)</span><div class="note">Protein + calcium + D2; choose low-additive brands</div></div>
+      </div>
+
+      <h3>Vegan Foods to Avoid with Crohn's</h3>
+      <div class="food-grid avoid">
+        <div class="food-item"><span class="emoji">🫘</span><span class="name">Whole Legumes</span><div class="note">Beans, chickpeas, lentils — high FODMAP, gassy; avoid during flares</div></div>
+        <div class="food-item"><span class="emoji">🌰</span><span class="name">Whole Nuts &amp; Seeds</span><div class="note">Hard to digest; nut butters (smooth) are fine</div></div>
+        <div class="food-item"><span class="emoji">🥦</span><span class="name">Raw Cruciferous Veg</span><div class="note">Broccoli, cauliflower, kale — raw only; cook thoroughly</div></div>
+        <div class="food-item"><span class="emoji">🧁</span><span class="name">Vegan Processed Foods</span><div class="note">Emulsifiers, gums, carrageenan — gut barrier disruptors</div></div>
+        <div class="food-item"><span class="emoji">🌶️</span><span class="name">Spicy Foods</span><div class="note">Irritates intestinal lining regardless of source</div></div>
+        <div class="food-item"><span class="emoji">🍫</span><span class="name">High-Cacao Dark Choc</span><div class="note">Oxalates and theobromine can aggravate symptoms</div></div>
+        <div class="food-item"><span class="emoji">🧃</span><span class="name">High-Fructose Juices</span><div class="note">Apple juice fine diluted; mango/pear juice = osmotic load</div></div>
+        <div class="food-item"><span class="emoji">🌮</span><span class="name">Seitan / Wheat Gluten</span><div class="note">Often poorly tolerated; avoid during flares entirely</div></div>
+      </div>
+
+      <h3>Weekly Workout Plan (Vegan)</h3>
+      <p>Identical structure to the remission plan — the training stimulus is the same regardless of diet. The key difference is protein timing: because plant protein has a slightly lower leucine content and anabolic response, aim to consume protein within 30 minutes post-workout (not 1–2 hours) and hit the higher end of the protein range (2.0–2.2g/kg).</p>
+
+      <div class="week-grid">
+        <div class="day-card">
+          <div class="day-name">Monday</div>
+          <div class="day-body">
+            <span class="day-tag">Upper Body</span><br>
+            Bench press 4×8<br>
+            Seated row 4×10<br>
+            OHP 3×10<br>
+            Lat pulldown 3×10<br>
+            Bicep curl 3×12<br>
+            Tricep pushdown 3×12
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Tuesday</div>
+          <div class="day-body">
+            <span class="day-tag">Active Recovery</span><br>
+            30-min brisk walk<br>
+            15-min yoga<br>
+            5-min breathwork<br>
+            <em>No lifting</em>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Wednesday</div>
+          <div class="day-body">
+            <span class="day-tag">Lower Body</span><br>
+            Squat 4×8<br>
+            Romanian deadlift 4×10<br>
+            Leg press 3×12<br>
+            Leg curl 3×12<br>
+            Calf raises 4×15<br>
+            Hip thrust 3×12
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Thursday</div>
+          <div class="day-body">
+            <span class="day-tag">Rest + Yoga</span><br>
+            20-min yoga<br>
+            10-min meditation<br>
+            Gentle walk<br>
+            <em>Full rest day</em>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">Friday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Body</span><br>
+            Deadlift 4×6<br>
+            Pull-ups 3×8<br>
+            Dumbbell press 3×10<br>
+            Cable row 3×12<br>
+            Lunges 3×10<br>
+            Core work 3×15
+          </div>
+        </div>
+        <div class="day-card light">
+          <div class="day-name">Saturday</div>
+          <div class="day-body">
+            <span class="day-tag">Active Rest</span><br>
+            45-min walk<br>
+            Swimming optional<br>
+            Foam rolling<br>
+            <em>Low intensity</em>
+          </div>
+        </div>
+        <div class="day-card rest">
+          <div class="day-name">Sunday</div>
+          <div class="day-body">
+            <span class="day-tag">Full Rest</span><br>
+            No training<br>
+            Batch cook tofu &amp; rice<br>
+            Prep protein shakes<br>
+            <em>Sleep 8+ hrs</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="icon">💊</span>
+        <div><b>Take your supplements every single day.</b> On a vegan Crohn's plan, supplementation is not optional — it is part of your nutritional protocol with the same priority as your protein target. Set phone reminders: B12 with breakfast, D3 with lunch (fat meal), zinc and omega-3 with dinner.</div>
+      </div>
+
+      <div class="callout info">
+        <span class="icon">🔬</span>
+        <div><b>Blood tests every 3 months:</b> B12, ferritin, vitamin D, zinc, CRP, full blood count. This is non-negotiable on a vegan Crohn's plan. Deficiencies develop silently and worsen disease activity before you feel them. Catching them early is far easier than reversing them after months of depletion.</div>
+      </div>
+
+    </div><!-- end tab-vegan -->
+
+</div><!-- end .page -->
+</div><!-- end #content -->
+
+<!-- ═══ BACK COVER ═══ -->
+<div class="back-cover">
+  <h2>Stay consistent. Stay patient.</h2>
+  <p>Muscle is built over months and years — not days. With Crohn's, the path is longer and less linear than for others. But with the right nutrition, smart training, and a team around you, strong is absolutely within reach.</p>
+  <p style="margin-top: 20px; font-size: 0.78rem; opacity: .5;">Building Muscle with Crohn's Disease · Nutrition Guide 2026</p>
+</div>
+
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
